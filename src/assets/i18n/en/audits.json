@@ -1,0 +1,8 @@
+{
+    "ID": "Identity",
+    "USER": "User",
+    "OPERATION": "Operation",
+    "DATE": "Date",
+    "CHANGES": "Changes",
+    "AUDIT": "Traceability"
+  }

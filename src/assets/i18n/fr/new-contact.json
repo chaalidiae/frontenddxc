@@ -1,0 +1,16 @@
+{
+  "ID": "Identité",
+  "LASTNAME": "Nom",
+  "FIRSTNAME": "Prenom",
+  "BIRTHDAY": "Date de Naissance",
+  "EMAIL": "Email",
+  "PHONE": "Num téléphone",
+  "ACTIONS": "Actions",
+  "NEWCONTACT":"Nouveau Contact",
+  "SAVE":"Enregistrer",
+  "EMAILREQUIRED":"Le champ email est requis",
+  "EMAILUNVALID":"Le champ email n'est pas valide",
+  "TELEREQUIRED":"Le champ telephone est requis",
+  "TELEUNVALID":"Le champ telephone doit contenir 10 chiffres"
+
+}

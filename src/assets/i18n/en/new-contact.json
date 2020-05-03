@@ -1,0 +1,17 @@
+{
+    
+    "ID": "Identity",
+    "LASTNAME": "Last Name",
+    "FIRSTNAME": "First Name",
+    "BIRTHDAY": "Birthday",
+    "EMAIL": "Email",
+    "PHONE": "Phone Number",
+    "ACTIONS": "Actions",
+    "NEWCONTACT":"New Contact",
+    "SAVE":"Save",
+    "EMAILREQUIRED":"Email field is required",
+    "EMAILUNVALID":"The email field is not valid",
+    "TELEREQUIRED":"Telephone field is required",
+    "TELEUNVALID":"Telephone field must contain 10 digits"
+    
+  }

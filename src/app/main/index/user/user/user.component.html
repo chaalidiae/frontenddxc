@@ -1,0 +1,25 @@
+<div class="container-fluid mb-5">
+  <p></p>
+  <h2>{{'LISTOFUSERS' | translate}}</h2>
+</div>
+
+<div>
+  <table class="table table-striped">
+    <tr>
+      <th>{{'ID' | translate}}</th><th>{{'USERNAME' | translate}}</th><th>{{'PASSWORD' | translate}}</th><th>{{'ROLES' | translate}}</th><th>{{'ACTIONS' | translate}}</th>
+    </tr>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.password}}</td>
+      <td>
+        <ul>
+          <li *ngFor="let role of user.roles">{{ role.roleName}}</li>
+        </ul>
+      </td>
+      <button class="btn btn-outline-success">Edit</button>
+      <button class="btn btn-outline-danger">Delete</button>
+    </tr>
+  </table>
+  <button class="btn btn-primary">{{'NEWUSER' | translate}}</button>
+</div>

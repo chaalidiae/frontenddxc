@@ -1,0 +1,24 @@
+<div class="container-fluid mb-5">
+  <p></p>
+  <h2>{{'LISTOFROLES' | translate}}</h2>
+</div>
+
+<div>
+  <table class="table table-striped">
+    <tr>
+      <th>{{'ID' | translate}}</th><th>{{'NAME' | translate}}</th><th>{{'PRIVILEGES' | translate}}</th><th>{{'ACTIONS' | translate}}</th>
+    </tr>
+    <tr *ngFor="let role of roles">
+      <td>{{role.id}}</td>
+      <td>{{role.roleName}}</td>
+      <td>
+        <ul>
+          <li *ngFor="let permission of role.permissions">{{ permission.permissionName}}</li>
+        </ul>
+      </td>
+      <button class="btn btn-outline-success">Edit</button>
+      <button class="btn btn-outline-danger">Delete</button>
+    </tr>
+  </table>
+  <button class="btn btn-primary">{{'NEWROLE' | translate}}</button>
+</div>

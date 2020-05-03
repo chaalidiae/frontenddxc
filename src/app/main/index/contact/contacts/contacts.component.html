@@ -1,0 +1,23 @@
+<div class="container-fluid mb-5">
+  <p></p>
+  <h2>{{'LISTOFCONTACTS' | translate}}</h2>
+</div>
+
+<div>
+  <table class="table table-striped">
+    <tr>
+      <th>{{'ID' | translate}}</th><th>{{'LASTNAME' | translate}}</th><th>{{'FIRSTNAME' | translate}}</th><th>{{'BIRTHDAY' | translate}}</th><th>{{'EMAIL' | translate}}</th><th>{{'PHONE' | translate}}</th><th>{{'ACTIONS' | translate}}</th>
+    </tr>
+    <tr *ngFor="let contact of contacts">
+      <td>{{contact.id}}</td>
+      <td>{{contact.nom}}</td>
+      <td>{{contact.prenom}}</td>
+      <td>{{contact.dateNaissance}}</td>
+      <td>{{contact.email}}</td>
+      <td>{{contact.tel}}</td>
+      <button class="btn btn-outline-success" (click)="OnUpdate(contact.id)">Edit</button>
+      <button class="btn btn-outline-danger" (click)="OnDelete(contact.id)">Delete</button>
+    </tr>
+  </table>
+    <button class="btn btn-primary" (click)="onNewContact()">{{'NEWCONTACT' | translate}}</button>
+</div>

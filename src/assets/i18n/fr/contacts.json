@@ -1,0 +1,12 @@
+{
+    "LISTOFCONTACTS": "List des Contacts",
+    "ID": "Identité",
+    "LASTNAME": "Nom",
+    "FIRSTNAME": "Prenom",
+    "BIRTHDAY": "Date de Naissance",
+    "EMAIL": "Email",
+    "PHONE": "Num téléphone",
+    "ACTIONS": "Actions",
+    "NEWCONTACT":"Nouveau Contact"
+
+  }

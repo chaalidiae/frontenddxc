@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand">DXC framework</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/contacts">Contacts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/user">{{'USERS' | translate}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/roles">{{'ROLES' | translate}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/permissions">{{'PERMISSIONS' | translate}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/audits">{{'AUDITS' | translate}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="onLogout()">{{'LOGOUT' | translate}}</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
