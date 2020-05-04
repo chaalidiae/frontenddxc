@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import * as fromI18n from '../../../../shared/lang/i18n/reducers';
 import { I18nComponent } from 'src/app/shared/lang/i18n/container/i18n.component';
+import { newArray } from '@angular/compiler/src/util';
 
 
 @Component({
@@ -15,6 +16,10 @@ import { I18nComponent } from 'src/app/shared/lang/i18n/container/i18n.component
 })
 export class ContactsComponent extends I18nComponent {
   contacts: any;
+  private page :number=0;
+  pages:Array<number>;
+  private size: number=5;
+
   constructor(
     private authService: AuthenticationService,
     private router: Router,
@@ -23,7 +28,7 @@ export class ContactsComponent extends I18nComponent {
     readonly translate: TranslateService
     ) {
       super(store, translate);
-      this.doSearch();
+      this.getPageOfContacts();
 
   }
 
@@ -42,7 +47,7 @@ export class ContactsComponent extends I18nComponent {
     if (confirm === true) {
       this.contactService.deleteContact(id).subscribe(
         data => {
-          this.doSearch();
+          this.getPageOfContacts();
         }
       );
     }
@@ -52,17 +57,48 @@ export class ContactsComponent extends I18nComponent {
     this.router.navigate(['/new-contact'], {queryParams: {id}});
   }
 
-  OnSearch() {
-    this.doSearch();
+  /*OnSearch() {
+    this.getPageOfContacts();
+  }*/
+
+  setPage(i,event:any){
+    event.preventDefault();
+    this.page=i;
+    this.getPageOfContacts(); 
+  }
+  setPrevious(event:any){
+    event.preventDefault();
+    if (this.page>0){
+    this.page--;
+    this.getPageOfContacts(); 
+    }
+  }
+  setNext(event:any){
+    event.preventDefault();
+    let j:number=this.pages.length-1;
+    if (this.page<j){
+      this.page++;
+      this.getPageOfContacts(); 
+    } 
+    
   }
 
-  doSearch() {
-    this.contactService.getContacts()
+  getPageOfContacts() {
+    this.contactService.getPageOfContacts(this.page,this.size)
       .subscribe(data => {
-        this.contacts = data;
+        console.log(data)
+        this.contacts = data['content'];
+        this.pages=new Array(data['totalPages']);
+        //this.contacts = data;
       }, error => {
         this.authService.logout();
         this.router.navigateByUrl('/login');
       });
+  }
+  selectSize(event:any){
+    event.preventDefault();
+    this.size=event.target.value;
+    this.page=0;
+    this.getPageOfContacts(); 
   }
 }

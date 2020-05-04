@@ -15,6 +15,12 @@ getContacts() {
     (this.host,{headers: new HttpHeaders({Authorization: this.authService.jwtToken})});
   }
 
+getPageOfContacts(page:number,size:number) {
+    if (this.authService.jwtToken == null) { this.authService.LoadToken(); }
+    return this.http.get
+    ("http://localhost:8080/getPageOfContacts?page="+page+"&size="+size,{headers: new HttpHeaders({Authorization: this.authService.jwtToken})});
+  }
+
 saveContact(contact) {
   if (this.authService.jwtToken == null) { this.authService.LoadToken(); }
   return this.http.post(this.host , contact, {headers: new HttpHeaders({Authorization: this.authService.jwtToken})});

@@ -14,4 +14,9 @@ export class PermissionsService {
     return this.http.get
     (this.host,{headers: new HttpHeaders({Authorization: this.authService.jwtToken})});
   }
+  getPageOfPermissions(page:number,size:number) {
+    if (this.authService.jwtToken == null) { this.authService.LoadToken(); }
+    return this.http.get
+    ("http://localhost:8080/getPageOfPermissions?page="+page+"&size="+size,{headers: new HttpHeaders({Authorization: this.authService.jwtToken})});
+  }
 }

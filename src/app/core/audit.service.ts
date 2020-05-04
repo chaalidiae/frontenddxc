@@ -15,4 +15,10 @@ getAudits() {
     (this.host,{headers: new HttpHeaders({Authorization: this.authService.jwtToken})});
   }
 
+  getPageOfAudits(page:number,size:number) {
+    if (this.authService.jwtToken == null) { this.authService.LoadToken(); }
+    return this.http.get
+    ("http://localhost:8080/getPageOfAudits?page="+page+"&size="+size,{headers: new HttpHeaders({Authorization: this.authService.jwtToken})});
+  }
+
 }
