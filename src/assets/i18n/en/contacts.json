@@ -7,6 +7,7 @@
     "EMAIL": "Email",
     "PHONE": "Phone Number",
     "ACTIONS": "Actions",
-    "NEWCONTACT":"New Contact"
+    "NEWCONTACT":"New Contact",
+    "SEARCH":"Search"
 
   }

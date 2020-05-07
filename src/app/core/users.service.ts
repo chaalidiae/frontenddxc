@@ -20,4 +20,10 @@ export class UsersService {
     return this.http.get
     ("http://localhost:8080/getPageOfUsers?page="+page+"&size="+size,{headers: new HttpHeaders({Authorization: this.authService.jwtToken})});
   }
+
+  searchForUsers(keyword:string, column:string, page:number, size:number) {
+    if (this.authService.jwtToken == null) { this.authService.LoadToken(); }
+    return this.http.get
+    ("http://localhost:8080/searchForUsers?page="+page+"&size="+size+"&keyword="+keyword+"&column="+column,{headers: new HttpHeaders({Authorization: this.authService.jwtToken})});
+  }
 }

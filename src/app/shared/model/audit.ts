@@ -2,7 +2,7 @@ export class Audit {
     id: any = null;
     user = '';
     operation = '';
-    date: Date;
+    date: Date = new Date();
     changes = '';
   }
   

@@ -1,0 +1,29 @@
+
+<table class="table table-striped">
+    <tr>
+        <th>{{'ID' | translate}}</th><th>{{'NAME' | translate}}</th><th>{{'PRIVILEGES' | translate}}</th><th>{{'ACTIONS' | translate}}</th>
+    </tr>
+    <tr *ngFor="let role of roles">
+        <td>{{role.id}}</td>
+        <td>{{role.roleName}}</td>
+        <td>
+        <ul>
+            <li *ngFor="let permission of role.permissions">{{ permission.permissionName}}</li>
+        </ul>
+        </td>
+        <button class="btn btn-outline-success">Edit</button>
+        <button class="btn btn-outline-danger">Delete</button>
+    </tr>
+    </table>
+    <ul class="pagination">
+    <li class="page-item"><a class="page-link" href=""(click)="setPrevious($event)">Previous</a></li>
+    <li class="page-item" *ngFor="let p of pages; let i=index">
+        <a class="page-link" href="" (click)="setPage(i,$event)">{{i}}</a>
+    </li>
+    <li class="page-item"><a class="page-link" href=""(click)="setNext($event)">Next</a></li>
+    <select (change)="selectSize($event)" class="custom-select" style="width: 5%; margin-left: 1%;" >
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+    </select>
+    </ul>

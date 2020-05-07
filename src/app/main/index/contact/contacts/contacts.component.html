@@ -2,35 +2,50 @@
   <p></p>
   <h2>{{'LISTOFCONTACTS' | translate}}</h2>
 </div>
+<div class ="row">
+  <div class="col-md-3 mb-3">
+    <select (change)="selectProperty($event)" class="custom-select" >
+      <option *ngFor="let property of properties" value={{property}}>{{property}}</option>
+    </select>
+  </div>
+  <div class="col-md-5">
 
-<div>
-  <table class="table table-striped">
-    <tr>
-      <th>{{'ID' | translate}}</th><th>{{'LASTNAME' | translate}}</th><th>{{'FIRSTNAME' | translate}}</th><th>{{'BIRTHDAY' | translate}}</th><th>{{'EMAIL' | translate}}</th><th>{{'PHONE' | translate}}</th><th>{{'ACTIONS' | translate}}</th>
-    </tr>
-    <tr *ngFor="let contact of contacts">
-      <td>{{contact.id}}</td>
-      <td>{{contact.nom}}</td>
-      <td>{{contact.prenom}}</td>
-      <td>{{contact.dateNaissance}}</td>
-      <td>{{contact.email}}</td>
-      <td>{{contact.tel}}</td>
-      <button class="btn btn-outline-success" (click)="OnUpdate(contact.id)">Edit</button>
-      <button class="btn btn-outline-danger" (click)="OnDelete(contact.id)">Delete</button>
-    </tr>
-  </table>
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href=""(click)="setPrevious($event)">Previous</a></li>
-    <li class="page-item" *ngFor="let p of pages; let i=index">
-      <a class="page-link" href="" (click)="setPage(i,$event)">{{i}}</a>
-    </li>
-    <li class="page-item"><a class="page-link" href=""(click)="setNext($event)">Next</a></li>
-    <select (change)="selectSize($event)" class="custom-select" style="width: 5%; margin-left: 1%;" >
-      <option value="5">5</option>
-      <option value="10">10</option>
-      <option value="20">20</option>
-  </select>
-  </ul>
+     <ng-container *ngIf="showOneInput">
+       <form class="container" #searchOnInputForm="ngForm" (ngSubmit)="OnSubmitOneInput()" novalidate>
+          <div class="input-group ">
+            <input class="form-control my-0 py-1 amber-border" #motCle="ngModel" 
+              type="text" placeholder="Search" name="keyword1" [(ngModel)]="keyword1">
+            <button class="btn btn-success" type="submit">{{'SEARCH' | translate}}</button>
+          </div>
+        </form>
+      </ng-container>
 
+      <ng-container *ngIf="showTwoInputs">
+       <form class="container" #searchTwoInputsForm="ngForm" (ngSubmit)="OnSubmitTwoInputs()" novalidate>
+          <div class="input-group md-form form-xs ">
+            <input class="form-control  amber-border" #motCle1="ngModel" 
+                  type="date" placeholder="Search" name="keyword2" [(ngModel)]="keyword2">
+            <input class="form-control my-0 py-1 amber-border" 
+                  type="date" placeholder="Search" name="keyword3" [(ngModel)]="keyword3">
+            <button class="btn btn-success" type="submit">{{'SEARCH' | translate}}</button>
+         </div>
+       </form>
+      </ng-container>
+   </div>
+  </div>
+  <div> 
+  
+    <div *ngIf="allContacts">
+      <app-all-contacts></app-all-contacts>
+    </div>
+
+  <div *ngIf="allContacts === false">
+    <app-search-contacts [keyword1]='keyword1'
+                         [keyword2]='keyword2'
+                         [keyword3]='keyword3'
+                         [property]='property'
+                         [refrechChildSubject]="refrechChildSubject.asObservable()"
+                         ></app-search-contacts>
+  </div>
     <button class="btn btn-primary" (click)="onNewContact()">{{'NEWCONTACT' | translate}}</button>
 </div>

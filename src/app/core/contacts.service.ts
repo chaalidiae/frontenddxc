@@ -21,6 +21,18 @@ getPageOfContacts(page:number,size:number) {
     ("http://localhost:8080/getPageOfContacts?page="+page+"&size="+size,{headers: new HttpHeaders({Authorization: this.authService.jwtToken})});
   }
 
+searchForContactsWithOnekeyword(keyword:string, column:string, page:number, size:number) {
+    if (this.authService.jwtToken == null) { this.authService.LoadToken(); }
+    return this.http.get
+    ("http://localhost:8080/searchForContactsWithOnekeyword?page="+page+"&size="+size+"&keyword="+keyword+"&column="+column,{headers: new HttpHeaders({Authorization: this.authService.jwtToken})});
+  }
+
+searchForContactsWithTwokeywords(keyword1:string, keyword2:string, column:string, page:number, size:number) {
+    if (this.authService.jwtToken == null) { this.authService.LoadToken(); }
+    return this.http.get
+    ("http://localhost:8080/searchForContactsWithTwoKeywords?page="+page+"&size="+size+"&keyword1="+keyword1+"&keyword2="+keyword2+"&column="+column,{headers: new HttpHeaders({Authorization: this.authService.jwtToken})});
+  }
+
 saveContact(contact) {
   if (this.authService.jwtToken == null) { this.authService.LoadToken(); }
   return this.http.post(this.host , contact, {headers: new HttpHeaders({Authorization: this.authService.jwtToken})});

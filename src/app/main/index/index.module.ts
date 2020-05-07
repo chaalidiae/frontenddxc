@@ -38,7 +38,7 @@ export function createTranslateLoader(http: HttpClient) {
     CommonModule,
     FormsModule,
     BrowserModule,
-    AppRoutingModule,
+    //AppRoutingModule,
     CommonModule,
     FormsModule,
     RouterModule

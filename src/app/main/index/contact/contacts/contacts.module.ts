@@ -8,14 +8,18 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { I18nModule } from 'src/app/shared/lang/i18n/i18n.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { AllContactsComponent } from './all-contacts/all-contacts.component';
+import { SearchContactsComponent } from './search-contacts/search-contacts.component';
+import { RouterModule } from '@angular/router';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../../../../../assets/i18n/', '/contacts.json');
 }
 
 @NgModule({
-  declarations: [ContactsComponent],
+  declarations: [ContactsComponent, AllContactsComponent, SearchContactsComponent],
   imports: [
+    RouterModule,
     CommonModule,
     ContactsRoutingModule,
     FormsModule,

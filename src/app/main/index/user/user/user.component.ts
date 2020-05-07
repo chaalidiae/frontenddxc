@@ -6,6 +6,8 @@ import * as fromI18n from '../../../../shared/lang/i18n/reducers';
 import { I18nComponent } from 'src/app/shared/lang/i18n/container/i18n.component';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
+import { Subject } from 'rxjs';
+import { User } from 'src/app/shared/model/user';
 
 @Component({
   selector: 'app-user',
@@ -13,57 +15,37 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent extends I18nComponent {
+  properties : any;
+  property : any;
+  keyword: any;
+  refrechChildSubject: Subject<boolean> = new Subject<boolean>();
+  allUsers:boolean=true;
   users: any;
-  private page :number=0;
-  pages:Array<number>;
-  private size: number=5;
-  constructor(private authService: AuthenticationService,
-    private router: Router,
-    private usersService: UsersService,
+
+  constructor(
     readonly store: Store<fromI18n.State>,
-    readonly translate: TranslateService) {
+    readonly translate: TranslateService) 
+    {
       super(store, translate);
-      this.getPageOfUsers();
+      let user : User=new User();
+      this.properties = Object.getOwnPropertyNames(user);
      }
 
-  
-  getPageOfUsers() {
-    this.usersService.getPageOfUsers(this.page,this.size)
-      .subscribe(data => {
-        this.users = data['content'];
-        this.pages=new Array(data['totalPages']);
-      }, error => {
-        this.authService.logout();
-        this.router.navigateByUrl('/login');
-      });
+     refrechChild(){
+      this.refrechChildSubject.next(true);
+   }
+
+   selectProperty(event){
+    event.preventDefault();
+    this.property = event.target.value;
   }
 
-  setPage(i,event:any){
-    event.preventDefault();
-    this.page=i;
-    this.getPageOfUsers(); 
-  }
-  setPrevious(event:any){
-    event.preventDefault();
-    if (this.page>0){
-    this.page--;
-    this.getPageOfUsers(); 
-    }
-  }
-  setNext(event:any){
-    event.preventDefault();
-    let j:number=this.pages.length-1;
-    if (this.page<j){
-      this.page++;
-      this.getPageOfUsers(); 
-    } 
-  }
+  OnSubmitOneInput(){
+    console.log("property : "+this.property + "\n");
+    console.log("value : "+this.keyword + "\n");
+    this.allUsers=false;
+    this.refrechChild();
 
-  selectSize(event:any){
-    event.preventDefault();
-    this.size=event.target.value;
-    this.page=0;
-    this.getPageOfUsers(); 
-    }
+  }
 
 }

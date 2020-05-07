@@ -19,4 +19,9 @@ export class RolesService {
     return this.http.get
     ("http://localhost:8080/getPageOfRoles?page="+page+"&size="+size,{headers: new HttpHeaders({Authorization: this.authService.jwtToken})});
   }
+  searchForRoles(keyword:string, column:string, page:number, size:number) {
+    if (this.authService.jwtToken == null) { this.authService.LoadToken(); }
+    return this.http.get
+    ("http://localhost:8080/searchForRoles?page="+page+"&size="+size+"&keyword="+keyword+"&column="+column,{headers: new HttpHeaders({Authorization: this.authService.jwtToken})});
+  }
 }

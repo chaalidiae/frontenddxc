@@ -8,13 +8,15 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { I18nModule } from 'src/app/shared/lang/i18n/i18n.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { SearchAuditComponent } from './search-audit/search-audit.component';
+import { AllAuditsComponent } from './all-audits/all-audits.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../../../../../assets/i18n/', '/audits.json');
 }
 
 @NgModule({
-  declarations: [AuditsComponent],
+  declarations: [AuditsComponent, SearchAuditComponent, AllAuditsComponent],
   imports: [
     CommonModule,
     AuditsRoutingModule,
