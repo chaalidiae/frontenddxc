@@ -58,7 +58,6 @@ export class SearchAuditComponent implements OnInit{
   }
 
   searchForAuditsWithOnekeyword() {
-    console.log("lewwwwwel")
     this.auditService.searchForAuditsWithOnekeyword(this.keyword1,this.property,this.page,this.size)
       .subscribe(data => {
         console.log(data)
@@ -71,7 +70,6 @@ export class SearchAuditComponent implements OnInit{
   }
 
   searchForAuditsWithTwokeywords() {
-    console.log("taaaaannniii")
     this.auditService.searchForAuditsWithTwokeywords(this.keyword2,this.keyword3,this.property,this.page,this.size)
       .subscribe(data => {
         console.log(data)
@@ -93,7 +91,7 @@ export class SearchAuditComponent implements OnInit{
   setPage(i,event:any){
     event.preventDefault();
     this.page=i;
-    this.searchForAuditsWithOnekeyword(); 
+    this.doSearch(); 
   }
   setPrevious(event:any){
     event.preventDefault();

@@ -29,6 +29,7 @@ export class UserComponent extends I18nComponent {
       super(store, translate);
       let user : User=new User();
       this.properties = Object.getOwnPropertyNames(user);
+      this.property = this.properties[0];
      }
 
      refrechChild(){

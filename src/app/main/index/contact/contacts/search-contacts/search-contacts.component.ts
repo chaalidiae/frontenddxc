@@ -87,7 +87,7 @@ export class SearchContactsComponent implements OnInit{
     if (confirm === true) {
       this.contactService.deleteContact(id).subscribe(
         data => {
-          this.searchForContactsWithOnekeyword();
+          this.doSearch();
         }
       );
     }
@@ -101,19 +101,19 @@ export class SearchContactsComponent implements OnInit{
     event.preventDefault();
     this.size=event.target.value;
     this.page=0;
-    this.searchForContactsWithOnekeyword(); 
+    this.doSearch(); 
   }
 
   setPage(i,event:any){
     event.preventDefault();
     this.page=i;
-    this.searchForContactsWithOnekeyword(); 
+    this.doSearch(); 
   }
   setPrevious(event:any){
     event.preventDefault();
     if (this.page>0){
     this.page--;
-    this.searchForContactsWithOnekeyword(); 
+    this.doSearch(); 
     }
   }
   setNext(event:any){
@@ -121,7 +121,7 @@ export class SearchContactsComponent implements OnInit{
     let j:number=this.pages.length-1;
     if (this.page<j){
       this.page++;
-      this.searchForContactsWithOnekeyword(); 
+      this.doSearch(); 
     } 
     
   }

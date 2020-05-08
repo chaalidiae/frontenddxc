@@ -3,12 +3,13 @@
   <h2>{{'LISTOFROLES' | translate}}</h2>
 </div>
 
-
+<div class="row">
   <div class="col-md-3 mb-3">
     <select (change)="selectProperty($event)" class="custom-select" >
       <option *ngFor="let property of properties" value={{property}}>{{property}}</option>
     </select>
   </div>
+  <div class="col-md-8 mb-3">
   <form class="container" #searchOnInputForm="ngForm" (ngSubmit)="OnSubmitOneInput()" novalidate>
     <div class="input-group ">
       <input class="form-control my-0 py-1 amber-border" #motCle="ngModel" 
@@ -16,7 +17,8 @@
       <button class="btn btn-success" type="submit">{{'SEARCH' | translate}}</button>
     </div>
   </form>
-
+</div>
+</div>
 <div>
   <div *ngIf="allRoles">
     <app-all-roles></app-all-roles>

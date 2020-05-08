@@ -32,7 +32,7 @@ export class PermissionsComponent extends I18nComponent implements OnInit {
       super(store, translate);
       let permission : Permission =new Permission();
       this.properties = Object.getOwnPropertyNames(permission);
-    
+      this.property = this.properties[0];
     }
 
     refrechChild(){

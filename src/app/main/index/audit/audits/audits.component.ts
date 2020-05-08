@@ -18,7 +18,7 @@ import { Audit } from 'src/app/shared/model/audit';
 export class AuditsComponent extends I18nComponent {
   audits: any;
   properties : any;
-  property : any;
+  property : any = 'id';
   public showTwoInputs:boolean = false;
   public showOneInput:boolean = true;
   keyword1: any='';
@@ -36,7 +36,7 @@ export class AuditsComponent extends I18nComponent {
       super(store, translate);
       let audit:Audit = new Audit();
       this.properties = Object.getOwnPropertyNames(audit);
-      console.log(this.properties);
+      this.property = this.properties[0];
       
     }
     refrechChild(){

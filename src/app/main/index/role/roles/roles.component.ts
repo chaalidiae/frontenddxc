@@ -30,6 +30,7 @@ export class RolesComponent extends I18nComponent implements OnInit {
       super(store, translate);
       let role : Role =new Role();
       this.properties = Object.getOwnPropertyNames(role);
+      this.property = this.properties[0];
       }
 
 refrechChild(){

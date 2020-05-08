@@ -15,7 +15,6 @@ import { Subject } from 'rxjs';
   styleUrls: ['./contacts.component.css']
 })
 export class ContactsComponent extends I18nComponent {
-  
   properties : any;
   property : any;
   public showTwoInputs:boolean = false;
@@ -36,7 +35,7 @@ export class ContactsComponent extends I18nComponent {
       super(store, translate);
       let contact:Contact = new Contact();
       this.properties = Object.getOwnPropertyNames(contact);
-      console.log(this.properties);
+      this.property = this.properties[0];
   }
 
   refrechChild(){

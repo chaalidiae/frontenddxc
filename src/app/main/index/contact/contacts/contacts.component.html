@@ -8,7 +8,7 @@
       <option *ngFor="let property of properties" value={{property}}>{{property}}</option>
     </select>
   </div>
-  <div class="col-md-5">
+  <div class="col-md-8">
 
      <ng-container *ngIf="showOneInput">
        <form class="container" #searchOnInputForm="ngForm" (ngSubmit)="OnSubmitOneInput()" novalidate>
