@@ -62,12 +62,10 @@ export class ContactsComponent extends I18nComponent {
     event.preventDefault();
     this.property = event.target.value;
     if (this.isDate(contact[this.property])) {
-      console.log(this.property +' is a date');
       this.showTwoInputs = true;
       this.showOneInput = false;
       this.keyword1=null;
     }else{
-      console.log(this.property+' is not a date');
       this.showTwoInputs = false;
       this.showOneInput = true;
     }
@@ -75,8 +73,6 @@ export class ContactsComponent extends I18nComponent {
   }
 
   OnSubmitOneInput(){
-    console.log("property : "+this.property + "\n");
-    console.log("value : "+this.keyword1 + "\n");
     this.allContacts=false;
     this.keyword2=null;
     this.keyword3=null;
@@ -85,9 +81,6 @@ export class ContactsComponent extends I18nComponent {
   }
 
   OnSubmitTwoInputs(){
-    console.log("property : "+this.property + "\n");
-    console.log("values : "+this.keyword2 + "\n");
-    console.log("values : "+this.keyword3 + "\n");
     this.allContacts=false;
     this.keyword1=null;
     this.refrechChild();

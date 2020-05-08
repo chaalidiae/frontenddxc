@@ -1,29 +1,32 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand">DXC framework</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+  <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="navbarSupportedContent" >
+    <ul class="nav navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/contacts">Contacts</a>
+        <a class="nav-link" routerLink="/contacts" (click)="isMenuCollapsed = true">Contacts</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/user">{{'USERS' | translate}}</a>
+        <a class="nav-link" routerLink="/user" (click)="isMenuCollapsed = true">{{'USERS' | translate}}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/roles">{{'ROLES' | translate}}</a>
+        <a class="nav-link" routerLink="/roles" (click)="isMenuCollapsed = true">{{'ROLES' | translate}}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/permissions">{{'PERMISSIONS' | translate}}</a>
+        <a class="nav-link" routerLink="/permissions" (click)="isMenuCollapsed = true">{{'PERMISSIONS' | translate}}</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/audits">{{'AUDITS' | translate}}</a>
+        <a class="nav-link" routerLink="/audits" (click)="isMenuCollapsed = true">{{'AUDITS' | translate}}</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="onLogout()">{{'LOGOUT' | translate}}</a>
+    </ul>
+    <ul class="nav navbar-nav right" >
+      <li>
+        <a class="nav-link" (click)="onLogout()" (click)="isMenuCollapsed = true"><i class="fa fa-sign-out"></i> {{'LOGOUT' | translate}}</a>
       </li>
     </ul>
   </div>
 </nav>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 

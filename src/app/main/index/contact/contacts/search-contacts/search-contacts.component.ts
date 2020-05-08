@@ -40,17 +40,14 @@ export class SearchContactsComponent implements OnInit{
       this.doSearch();
     }
    }, error => {
-    this.authService.logout();
-    this.router.navigateByUrl('/login');
+    /*this.authService.logout();
+    this.router.navigateByUrl('/login');*/
+    this.router.navigateByUrl('/**');
   });
     
   }
 
   doSearch(){
-    console.log("property : "+this.property);
-    console.log("keyword1 : "+this.keyword1);
-    console.log("keyword2 : "+this.keyword2);
-    console.log("keyword3 : "+this.keyword3);
     if(this.keyword1 == null) {
       this.searchForContactsWithTwokeywords();
     }else if(this.keyword2==null&&this.keyword3==null){
@@ -65,8 +62,9 @@ export class SearchContactsComponent implements OnInit{
         this.contacts = data['content'];
         this.pages=new Array(data['totalPages']);
       }, error => {
-        this.authService.logout();
-        this.router.navigateByUrl('/login');
+        /*this.authService.logout();
+          this.router.navigateByUrl('/login');*/
+          this.router.navigateByUrl('/**');
       });
   }
 
@@ -77,8 +75,9 @@ export class SearchContactsComponent implements OnInit{
         this.contacts = data['content'];
         this.pages=new Array(data['totalPages']);
       }, error => {
-        this.authService.logout();
-        this.router.navigateByUrl('/login');
+        /*this.authService.logout();
+          this.router.navigateByUrl('/login');*/
+          this.router.navigateByUrl('/**');
       });
   }
 

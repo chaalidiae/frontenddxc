@@ -27,6 +27,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { I18nModule } from './shared/lang/i18n/i18n.module';
 import { metaReducers, ROOT_REDUCERS } from './shared/lang/reducers';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '/navbar.json');
@@ -75,7 +76,9 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       },
       isolate: true
-    })
+    }),
+
+    NgbModule
   ],
   providers: [AuthenticationService, 
     ContactsService, 

@@ -38,8 +38,9 @@ export class SearchUserComponent implements OnInit {
       this.getPageOfUsers();
     }
    }, error => {
-    this.authService.logout();
-    this.router.navigateByUrl('/login');
+    /*this.authService.logout();
+      this.router.navigateByUrl('/login');*/
+      this.router.navigateByUrl('/**');
   });
     
   }
@@ -51,8 +52,9 @@ export class SearchUserComponent implements OnInit {
         this.users = data['content'];
         this.pages=new Array(data['totalPages']);
       }, error => {
-        this.authService.logout();
-        this.router.navigateByUrl('/login');
+        /*this.authService.logout();
+          this.router.navigateByUrl('/login');*/
+          this.router.navigateByUrl('/**');
       });
   }
 

@@ -13,7 +13,7 @@ import * as fromI18n from '../../lang/i18n/reducers';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent extends I18nComponent {
-
+  public isMenuCollapsed = true;
   constructor(
      private authService: AuthenticationService,
      private router: Router,

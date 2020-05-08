@@ -33,10 +33,8 @@ export class AllContactsComponent implements OnInit {
   getPageOfContacts() {
     this.contactService.getPageOfContacts(this.page,this.size)
       .subscribe(data => {
-        console.log(data)
         this.contacts = data['content'];
         this.pages=new Array(data['totalPages']);
-        //this.contacts = data;
       }, error => {
         this.authService.logout();
         this.router.navigateByUrl('/login');

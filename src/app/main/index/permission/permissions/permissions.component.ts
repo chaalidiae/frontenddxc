@@ -46,8 +46,6 @@ selectProperty(event){
 }
 
 OnSubmitOneInput(){
-  console.log("property : "+this.property + "\n");
-  console.log("value : "+this.keyword + "\n");
   this.allPermissions=false;
   this.refrechChild();
 

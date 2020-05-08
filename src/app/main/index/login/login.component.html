@@ -1,4 +1,4 @@
-<div class="container">
+<!--<div class="container">
   <div class="alert alert-danger" *ngIf="mode==1">
     <strong>Bad Credentials!</strong> Invalid username or password
   </div>
@@ -18,5 +18,27 @@
         </form>
       </div>
     </div>
+  </div>
+</div>
+-->
+<div class="container">
+  <div class="alert alert-danger" *ngIf="mode==1">
+    <strong>Bad Credentials!</strong> Invalid username or password
+  </div>
+  <div class="login-form">
+    <form #f="ngForm" (ngSubmit)="onLogin(f.value)">
+        <h2 class="text-center">{{'LOGIN' | translate}}</h2>       
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="{{'USERNAME' | translate}}" 
+                               name="username" ngModel="" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="{{'PASSWORD' | translate}}" 
+                               name="password" ngModel="" required="required">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">{{'LOGIN' | translate}}</button>
+        </div>       
+    </form>
   </div>
 </div>

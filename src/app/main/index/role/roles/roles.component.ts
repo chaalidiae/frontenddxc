@@ -43,8 +43,6 @@ selectProperty(event){
 }
 
 OnSubmitOneInput(){
-  console.log("property : "+this.property + "\n");
-  console.log("value : "+this.keyword + "\n");
   this.allRoles=false;
   this.refrechChild();
 

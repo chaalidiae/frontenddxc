@@ -36,8 +36,9 @@ export class SearchPermissionComponent implements OnInit {
       this.searchForPermissions();
     }
     }, error => {
-    this.authService.logout();
-    this.router.navigateByUrl('/login');
+    /*this.authService.logout();
+      this.router.navigateByUrl('/login');*/
+      this.router.navigateByUrl('/**');
   });
     
   }
@@ -48,8 +49,9 @@ searchForPermissions() {
         this.permissions = data['content'];
         this.pages=new Array(data['totalPages']);
       }, error => {
-        this.authService.logout();
-        this.router.navigateByUrl('/login');
+        /*this.authService.logout();
+          this.router.navigateByUrl('/login');*/
+          this.router.navigateByUrl('/**');
       });
   }
 

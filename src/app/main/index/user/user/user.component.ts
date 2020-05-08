@@ -42,8 +42,6 @@ export class UserComponent extends I18nComponent {
   }
 
   OnSubmitOneInput(){
-    console.log("property : "+this.property + "\n");
-    console.log("value : "+this.keyword + "\n");
     this.allUsers=false;
     this.refrechChild();
 

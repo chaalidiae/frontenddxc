@@ -9,6 +9,8 @@ import { NavBarComponent } from './nav-bar.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { RouterModule } from '@angular/router';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../../../../assets/i18n/', '/navbar.json');
@@ -18,6 +20,8 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [NavBarComponent],
   imports: [
+    BrowserModule,
+    NgbModule,
     CommonModule,
     I18nModule,
     TranslateModule.forChild({
