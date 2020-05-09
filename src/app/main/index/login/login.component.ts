@@ -33,7 +33,7 @@ export class LoginComponent extends I18nComponent {
           const token = 'Bearer ' + b.jwt;
           // console.log(token);
           this.authService.saveToken(token);
-          this.router.navigateByUrl('/contacts');
+          this.router.navigateByUrl('/user');
         },
         error => {
           this.mode = 1;

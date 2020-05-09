@@ -28,6 +28,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { I18nModule } from './shared/lang/i18n/i18n.module';
 import { metaReducers, ROOT_REDUCERS } from './shared/lang/reducers';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LoginModule } from './main/index/login/login.module';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '/navbar.json');
@@ -41,6 +43,7 @@ export function createTranslateLoader(http: HttpClient) {
     NoPageComponent
   ],
   imports: [
+    LoginModule,
     IndexModule,
     BrowserModule,
     AppRoutingModule,
@@ -50,7 +53,6 @@ export function createTranslateLoader(http: HttpClient) {
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-
     HttpClientModule,
     I18nModule,
     StoreModule.forRoot(ROOT_REDUCERS, {
@@ -78,7 +80,8 @@ export function createTranslateLoader(http: HttpClient) {
       isolate: true
     }),
 
-    NgbModule
+    NgbModule,
+    FontAwesomeModule
   ],
   providers: [AuthenticationService, 
     ContactsService, 

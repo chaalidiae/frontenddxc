@@ -11,6 +11,8 @@ import { I18nModule } from './lang/i18n/i18n.module';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NavBarModule } from './layout/nav-bar/nav-bar.module';
 import { FooterModule } from './layout/footer/footer.module';
+import { SideBarModule } from './layout/side-bar/side-bar.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../../assets/i18n/', '/footer.json');
@@ -22,6 +24,7 @@ export function createTranslateLoader(http: HttpClient) {
     exports: [
     ],
   imports: [
+    SideBarModule,
     NavBarModule,
     FooterModule,
     I18nModule,
@@ -34,7 +37,8 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       },
       isolate: true
-    })
+    }),
+    FontAwesomeModule
   ]
 })
 export class SharedModule { }
