@@ -63,8 +63,7 @@ export class SearchAuditComponent implements OnInit{
         this.audits = data['content'];
         this.pages=new Array(data['totalPages']);
       }, error => {
-        this.authService.logout();
-        this.router.navigateByUrl('/login');
+        this.router.navigateByUrl('/**');
       });
   }
 
@@ -75,8 +74,7 @@ export class SearchAuditComponent implements OnInit{
         this.audits = data['content'];
         this.pages=new Array(data['totalPages']);
       }, error => {
-        this.authService.logout();
-        this.router.navigateByUrl('/login');
+        this.router.navigateByUrl('/**');
       });
   }
 
