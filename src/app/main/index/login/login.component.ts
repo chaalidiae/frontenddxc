@@ -31,7 +31,6 @@ export class LoginComponent extends I18nComponent {
           const a = JSON.stringify(resp.body);
           const b = JSON.parse(a);
           const token = 'Bearer ' + b.jwt;
-          // console.log(token);
           this.authService.saveToken(token);
           this.router.navigateByUrl('/user');
         },

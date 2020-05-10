@@ -39,8 +39,7 @@ export class SearchAuditComponent implements OnInit{
       this.doSearch();
     }
    }, error => {
-    this.authService.logout();
-    this.router.navigateByUrl('/login');
+        this.router.navigateByUrl('/**');
   });
     
   }

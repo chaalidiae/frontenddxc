@@ -40,8 +40,6 @@ export class SearchContactsComponent implements OnInit{
       this.doSearch();
     }
    }, error => {
-    /*this.authService.logout();
-    this.router.navigateByUrl('/login');*/
     this.router.navigateByUrl('/**');
   });
     
@@ -62,8 +60,6 @@ export class SearchContactsComponent implements OnInit{
         this.contacts = data['content'];
         this.pages=new Array(data['totalPages']);
       }, error => {
-        /*this.authService.logout();
-          this.router.navigateByUrl('/login');*/
           this.router.navigateByUrl('/**');
       });
   }
@@ -75,8 +71,6 @@ export class SearchContactsComponent implements OnInit{
         this.contacts = data['content'];
         this.pages=new Array(data['totalPages']);
       }, error => {
-        /*this.authService.logout();
-          this.router.navigateByUrl('/login');*/
           this.router.navigateByUrl('/**');
       });
   }

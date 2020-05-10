@@ -50,8 +50,6 @@ searchForRoles() {
       this.roles = data['content'];
       this.pages=new Array(data['totalPages']);
     }, error => {
-      /*this.authService.logout();
-        this.router.navigateByUrl('/login');*/
         this.router.navigateByUrl('/**');
     });
 }
