@@ -39,10 +39,10 @@ mode = 1;
   OnSubmit() {
     if (this.mode === 1) {
       this.contactservice.saveContact(this.contact).subscribe(data => console.log('Done'));
-      this.router.navigateByUrl('/contacts');
+      this.router.navigate(['/contacts']);
     } else {
       this.contactservice.updateContact(this.contact).subscribe(data => console.log('Done'));
-      this.router.navigateByUrl('/contacts');
+      this.router.navigate(['/contacts']);
     }
   }
 }
