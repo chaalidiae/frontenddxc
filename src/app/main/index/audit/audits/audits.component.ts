@@ -8,6 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 import * as fromI18n from '../../../../shared/lang/i18n/reducers';
 import { Subject } from 'rxjs';
 import { Audit } from 'src/app/shared/model/audit';
+import { Operation } from 'src/app/shared/model/operation.enum';
 
 
 @Component({
@@ -19,6 +20,9 @@ export class AuditsComponent extends I18nComponent {
   audits: any;
   properties : any;
   property : any = 'id';
+  operations : any;
+  operation : any;
+  public showOperations:boolean = false;
   public showTwoInputs:boolean = false;
   public showOneInput:boolean = true;
   keyword1: any='';
@@ -36,8 +40,8 @@ export class AuditsComponent extends I18nComponent {
       super(store, translate);
       let audit:Audit = new Audit();
       this.properties = Object.getOwnPropertyNames(audit);
-      this.property = this.properties[0];
-      
+      //this.property = this.properties[0];
+      this.operations =  Object.keys(Operation).filter(k => typeof Operation[k as any] === "number");
     }
     refrechChild(){
       this.refrechChildSubject.next(true);
@@ -50,15 +54,25 @@ export class AuditsComponent extends I18nComponent {
       event.preventDefault();
       this.property = event.target.value;
       if (this.isDate(audit[this.property])) {
-        console.log(this.property +' is a date');
         this.showTwoInputs = true;
         this.showOneInput = false;
+        this.showOperations = false;
+      }else if(this.property == "operation"){
+        this.keyword1= this.operations[0];
+        this.showTwoInputs = false;
+        this.showOneInput = false;
+        this.showOperations = true;
       }else{
-        console.log(this.property+' is not a date');
+        this.keyword1=null;
         this.showTwoInputs = false;
         this.showOneInput = true;
+        this.showOperations = false;
       }
   
+    }
+    selectOperation(event){
+      event.preventDefault();
+      this.keyword1 = event.target.value;
     }
   
     OnSubmitOneInput(){
@@ -80,4 +94,5 @@ export class AuditsComponent extends I18nComponent {
       this.refrechChild();
   
     }
+    
 }
