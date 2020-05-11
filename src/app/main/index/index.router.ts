@@ -27,6 +27,11 @@ export const IndexRoutes: Route[] = [
       import('./user/user/user.module').then(m => m.UserModule)
   },
   {
+    path: 'new-user',
+    loadChildren: () =>
+      import('./user/new-user/new-user.module').then(m => m.NewUserModule)
+  },
+  {
     path: 'new-contact',
     loadChildren: () =>
       import('./contact/new-contact/new-contact.module').then(m => m.NewContactModule)

@@ -23,6 +23,7 @@ export class UserComponent extends I18nComponent {
   users: any;
 
   constructor(
+    private router: Router,
     readonly store: Store<fromI18n.State>,
     readonly translate: TranslateService) 
     {
@@ -46,5 +47,7 @@ export class UserComponent extends I18nComponent {
     this.refrechChild();
 
   }
-
+  onNewUser(){
+    this.router.navigateByUrl('/new-user');
+  }
 }
