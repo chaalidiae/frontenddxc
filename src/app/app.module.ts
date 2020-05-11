@@ -30,6 +30,7 @@ import { metaReducers, ROOT_REDUCERS } from './shared/lang/reducers';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginModule } from './main/index/login/login.module';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '/navbar.json');

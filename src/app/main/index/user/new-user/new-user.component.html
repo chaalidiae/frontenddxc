@@ -1,1 +1,51 @@
-<p>new-user works!</p>
+<div class="container-fluid mb-5">
+    <p></p>
+    <h2>{{'NEWUSER' | translate}}</h2>
+  </div>
+
+<form class="container size"  #userForm="ngForm" (ngSubmit)="OnSubmit()" novalidate>
+
+    <div class="form-group">
+        <label>{{'USERNAME' | translate}} :</label>
+      <input class="form-control" #username="ngModel" [class.is-invalid]="username.invalid && username.touched" [(ngModel)]="user.username" type="text" name="username" required>
+       <small class="text-danger" [class.d-none]="username.valid || username.untouched">Le champ utilisateur est requis !</small> 
+    </div>
+    <div class="form-group">
+        <label>{{'PASSWORD' | translate}} :</label>
+      <input class="form-control" #password="ngModel" [class.is-invalid]="password.invalid && password.touched" [(ngModel)]="user.password" type="text" name="password" required>
+       <small class="text-danger" [class.d-none]="password.valid || password.untouched">Le champ mot de passe est requis !</small> 
+    </div>
+    <div class="form-group">
+        <ng-multiselect-dropdown
+        [settings]="dropdownSettings"
+        [data]="roles"
+        [(ngModel)]="selectedItems"
+        [placeholder]="'Roles'"
+        (onSelect)="onItemSelect($event)">
+        </ng-multiselect-dropdown>
+    </div> 
+    
+    
+
+    <!-- <div class="form-group"> -->
+        <!-- <label>{{'ROLE' | translate}} :</label>
+        <ng-multiselect-dropdown
+        [settings]="dropdownSettings"
+        [data]="roles"
+        [(ngModel)]="selectedItems"
+        [placeholder]="'custom placeholder'"
+        (onSelect)="onItemSelect($event)">
+        </ng-multiselect-dropdown> -->
+    <!-- </div> -->
+
+    <!-- <ng-multiselect-dropdown
+  [settings]="dropdownSettings"
+  [data]="dropdownList"
+  [(ngModel)]="selectedItems"
+  [placeholder]="'custom placeholder'"
+>
+</ng-multiselect-dropdown>-->
+    <div>
+        <button  class="btn btn-success" type="submit">{{'SAVE' | translate}}</button>
+      </div>
+</form>
