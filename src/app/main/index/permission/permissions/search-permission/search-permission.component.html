@@ -6,7 +6,7 @@
     <td>{{permission.id}}</td>
     <td>{{permission.permissionName}}</td>
     <td>
-    <button class="btn btn-outline-success">Edit</button>
+    <button class="btn btn-outline-success" (click)="OnUpdate(permission.id)" >Edit</button>
     <button class="btn btn-outline-danger">Delete</button>
     </td>
 </tr>

@@ -79,4 +79,8 @@ searchForPermissions() {
     this.searchForPermissions(); 
     }
 
+    OnUpdate(id) {
+      this.router.navigate(['/new-permission'], {queryParams: {id}});
+    }
+
 }

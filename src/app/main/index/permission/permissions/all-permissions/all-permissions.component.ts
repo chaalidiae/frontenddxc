@@ -66,4 +66,8 @@ export class AllPermissionsComponent implements OnInit {
     this.getPageOfPermissions(); 
     }
 
+    OnUpdate(id) {
+      this.router.navigate(['/new-permission'], {queryParams: {id}});
+    }
+
 }

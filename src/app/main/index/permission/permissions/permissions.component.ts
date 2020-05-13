@@ -50,4 +50,7 @@ OnSubmitOneInput(){
   this.refrechChild();
 
 }
+onNewPermission() {
+  this.router.navigateByUrl('/new-permission');
+}
 }

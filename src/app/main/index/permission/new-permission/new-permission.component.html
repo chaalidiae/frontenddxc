@@ -1,1 +1,18 @@
-<p>new-permission works!</p>
+<div class="container-fluid mb-5">
+    <p></p>
+    <h2>{{'NEWPERMISSION' | translate}}</h2>
+  </div>
+  
+  <form class="container size"  #contactForm="ngForm" (ngSubmit)="OnSubmit()" novalidate>
+  
+    <div class="form-group">
+        <label>{{'NAME' | translate}} :</label>
+        <input class="form-control" #permissionName="ngModel" [class.is-invalid]="permissionName.invalid && permissionName.touched" [(ngModel)]="permission.permissionName" type="text" name="permissionName" required>
+        <small class="text-danger" [class.d-none]="permissionName.valid || permissionName.untouched">Le champ nom est requis !</small>
+    </div>
+    
+    <div>
+      <button [disabled]="contactForm.form.invalid" class="btn btn-success" type="submit">{{'SAVE' | translate}}</button>
+    </div>
+  </form>
+  
