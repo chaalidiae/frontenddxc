@@ -3,6 +3,9 @@
     "ROLES": "Roles",
     "PERMISSIONS": "Permissions",
     "AUDITS": "Audits",
-    "LOGOUT": "Logout"
-    
+    "LOGOUT": "Logout",
+    "ADMINISTRATION": "Administration",
+    "ACCOUNT": "Account",
+    "HOME": "Home",
+    "SETTINGS": "Settings"
   }

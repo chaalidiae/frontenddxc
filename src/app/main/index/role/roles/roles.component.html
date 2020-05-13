@@ -1,9 +1,11 @@
-<div class="container-fluid mb-5">
+<div class="container-fluid mb-3">
   <p></p>
   <h2>{{'LISTOFROLES' | translate}}</h2>
 </div>
-
-<div class="row">
+<div class="container mb-4">
+  <button class="btn btn-primary" (click)="onNewRole()">{{'NEWROLE' | translate}}</button>
+  </div>
+<div class="row container">
   <div class="col-md-3 mb-3">
     <select (change)="selectProperty($event)" class="custom-select" >
       <option *ngFor="let property of properties" value={{property}}>{{property}}</option>
@@ -31,5 +33,4 @@
                         ></app-search-role>
       <button class="btn btn-primary">{{'NEWRole' | translate}}</button>
   </div>
-  <button class="btn btn-primary" (click)="onNewRole()">{{'NEWROLE' | translate}}</button>
 </div>

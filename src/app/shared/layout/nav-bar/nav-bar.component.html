@@ -49,7 +49,7 @@
 </nav> -->
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <a class="navbar-brand" href="#">DXC <small class="text-muted">Framework</small></a>
+      <a class="navbar-brand" routerLink="/home">DXC <small class="text-muted">Framework</small></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
@@ -59,30 +59,30 @@
               <li class="nav-item">
                   <a class="nav-link" routerLink="/home">
                     <i class="fa fa-home" aria-hidden="true"></i>
-                    Home
+                    {{'HOME' | translate}}
                 </a>
               </li>
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-user" aria-hidden="true"></i>
-                     Account
+                    {{'ACCOUNT' | translate}}
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     
-                      <li><a class="dropdown-item" href="#"><i class="fa fa-wrench fa-fw"></i> Settings</a></li>
-                      <li><a class="dropdown-item pointer" (click)="onLogout()"><i class="fa fa-sign-out fa-fw"></i> Sign out</a></li>
+                      <li><a class="dropdown-item" href="#"><i class="fa fa-wrench fa-fw"></i> {{'SETTINGS' | translate}}</a></li>
+                      <li><a class="dropdown-item pointer" (click)="onLogout()"><i class="fa fa-sign-out fa-fw"></i> {{'LOGOUT' | translate}}</a></li>
                   </ul>
               </li>
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-university" aria-hidden="true"></i>
-                     Administration
+                    {{'ADMINISTRATION' | translate}}
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" routerLink="/user"><i class="fa fa-users fa-fw"></i> Users</a></li>
-                    <li><a class="dropdown-item" routerLink="/roles"><i class="fa fa-hand-o-up fa-fw"></i> Roles</a></li>
-                    <li><a class="dropdown-item" routerLink="/permissions"><i class="fa fa-cog fa-fw"></i> Permitions</a></li>
-                    <li><a class="dropdown-item" routerLink="/audits"><i class="fa fa-archive fa-fw"></i> Audits</a></li>
+                    <li><a class="dropdown-item" routerLink="/user"><i class="fa fa-users fa-fw"></i> {{'USERS' | translate}}</a></li>
+                    <li><a class="dropdown-item" routerLink="/roles"><i class="fa fa-hand-o-up fa-fw"></i> {{'ROLES' | translate}}</a></li>
+                    <li><a class="dropdown-item" routerLink="/permissions"><i class="fa fa-cog fa-fw"></i> {{'PERMISSIONS' | translate}}</a></li>
+                    <li><a class="dropdown-item" routerLink="/audits"><i class="fa fa-archive fa-fw"></i> {{'AUDITS' | translate}}</a></li>
                   </ul>
               </li>
               <li class="nav-item dropdown d-sm-block d-md-none">
@@ -108,15 +108,8 @@
                     <a class="nav-link dropdown-item" routerLink="/contacts">List Contact</a>
                 </div>
               </li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa fa-flag" aria-hidden="true"></i>
-                     Language
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <a class="dropdown-item" href="#">ENGLISH</a>
-                      <a class="dropdown-item" href="#">FRANCAIS</a>
-                  </ul>
+              <li class="nav-item">
+                <app-language-selector></app-language-selector>
               </li>
           </ul>
       </div>

@@ -8,6 +8,7 @@ import { I18nModule } from '../../lang/i18n/i18n.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../../../../assets/i18n/', '/footer.json');
@@ -19,6 +20,7 @@ export function createTranslateLoader(http: HttpClient) {
     CommonModule,
     MatSelectModule,
     MatFormFieldModule,
+    NgbModule,
 
     I18nModule,
     TranslateModule.forChild({
