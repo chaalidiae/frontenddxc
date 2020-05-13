@@ -69,5 +69,8 @@ export class AllUsersComponent implements OnInit {
     } 
     
   }
+  OnUpdate(id){
+    this.router.navigate(['/new-user'], {queryParams: {id}});
+  }
 
 }

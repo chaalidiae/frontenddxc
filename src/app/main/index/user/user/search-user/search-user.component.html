@@ -10,7 +10,7 @@
           <li *ngFor="let role of user.roles">{{ role.roleName}}</li>
         </ul>
       </td>
-      <button class="btn btn-outline-success">Edit</button>
+      <button class="btn btn-outline-success" (click)="OnUpdate(user.id)">Edit</button>
       <button class="btn btn-outline-danger">Delete</button>
     </tr>
   </table>

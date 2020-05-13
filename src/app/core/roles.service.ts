@@ -24,4 +24,10 @@ export class RolesService {
     return this.http.get
     ("http://localhost:8080/searchForRoles?page="+page+"&size="+size+"&keyword="+keyword+"&column="+column,{headers: new HttpHeaders({Authorization: this.authService.jwtToken})});
   }
+  getRoleById(id) {
+    return this.http.get(this.host + '/' + id, {headers: new HttpHeaders({Authorization: this.authService.jwtToken})} );
+  }
+  getRoleByRoleName(roleName) {
+    return this.http.get('http://localhost:8080/getRoleByroleName?roleName=' + roleName, {headers: new HttpHeaders({Authorization: this.authService.jwtToken})} );
+  }
 }
