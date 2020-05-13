@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {AuthenticationService} from './authentification.service';
+import { Role } from '../shared/model/role';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,12 @@ export class RolesService {
   }
   getRoleByRoleName(roleName) {
     return this.http.get('http://localhost:8080/getRoleByroleName?roleName=' + roleName, {headers: new HttpHeaders({Authorization: this.authService.jwtToken})} );
+  }
+  saveRole(role) {
+    if (this.authService.jwtToken == null) { this.authService.LoadToken(); }
+    return this.http.post(this.host , role, {headers: new HttpHeaders({Authorization: this.authService.jwtToken})});
+    }
+  updateRole(role: Role) {
+    return this.http.put(this.host + '/' + role.id , role, {headers: new HttpHeaders({Authorization: this.authService.jwtToken})});
   }
 }

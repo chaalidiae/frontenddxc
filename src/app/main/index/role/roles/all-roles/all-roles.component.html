@@ -11,7 +11,7 @@
             <li *ngFor="let permission of role.permissions">{{ permission.permissionName}}</li>
           </ul>
         </td>
-        <button class="btn btn-outline-success">Edit</button>
+        <button class="btn btn-outline-success"(click)="OnUpdate(role.id)">Edit</button>
         <button class="btn btn-outline-danger">Delete</button>
       </tr>
     </table>

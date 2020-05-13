@@ -67,4 +67,8 @@ export class AllRolesComponent implements OnInit {
     this.getPageOfRoles(); 
     }
 
+    OnUpdate(id){
+      this.router.navigate(['/new-role'], {queryParams: {id}});
+    }
+
 }

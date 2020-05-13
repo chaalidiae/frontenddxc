@@ -28,7 +28,7 @@ export class RolesComponent extends I18nComponent implements OnInit {
     readonly store: Store<fromI18n.State>,
     readonly translate: TranslateService) {
       super(store, translate);
-      let role : Role =new Role(null,null,null);
+      let role : Role =new Role();
       this.properties = Object.getOwnPropertyNames(role);
       this.property = this.properties[0];
       }
@@ -46,6 +46,9 @@ OnSubmitOneInput(){
   this.allRoles=false;
   this.refrechChild();
 
+}
+onNewRole(){
+  this.router.navigateByUrl('/new-role');
 }
   
 }

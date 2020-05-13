@@ -9,7 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 import * as fromI18n from '../../../../shared/lang/i18n/reducers';
 import { UsersService } from 'src/app/core/users.service';
 import { Role } from 'src/app/shared/model/role';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-new-user',

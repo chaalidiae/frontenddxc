@@ -54,6 +54,9 @@ searchForRoles() {
     });
 }
 
+OnUpdate(id){
+  this.router.navigate(['/new-role'], {queryParams: {id}});
+}
 
 
 selectSize(event:any){
