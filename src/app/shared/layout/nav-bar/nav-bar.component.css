@@ -1,11 +1,10 @@
-.right {
-    position: absolute;
-    right: 0px;
-}
-.navbar{
-    z-index: 2;
-}
-.dropdown-menu {
+.menu-droped {
     max-height:200px;
     overflow:scroll; 
- }
+}
+.dropdown-menu{
+    min-width: 7rem;
+}
+.pointer{
+    cursor: pointer;
+}

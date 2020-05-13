@@ -60,5 +60,10 @@ export const IndexRoutes: Route[] = [
     path: 'audits',
     loadChildren: () =>
       import('./audit/audits/audits.module').then(m => m.AuditsModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('./home/home.module').then(m => m.HomeModule)
   }
 ];

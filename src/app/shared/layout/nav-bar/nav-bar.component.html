@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <a class="navbar-brand">DXC framework</a>
   <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -46,4 +46,78 @@
       </li>
     </ul>
   </div>
+</nav> -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <a class="navbar-brand" href="#">DXC <small class="text-muted">Framework</small></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navbarNavDropdown" class="navbar-collapse collapse">
+          <ul class="navbar-nav ml-auto">
+              
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="/home">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    Home
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                     Account
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    
+                      <li><a class="dropdown-item" href="#"><i class="fa fa-wrench fa-fw"></i> Settings</a></li>
+                      <li><a class="dropdown-item pointer" (click)="onLogout()"><i class="fa fa-sign-out fa-fw"></i> Sign out</a></li>
+                  </ul>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-university" aria-hidden="true"></i>
+                     Administration
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" routerLink="/user"><i class="fa fa-users fa-fw"></i> Users</a></li>
+                    <li><a class="dropdown-item" routerLink="/roles"><i class="fa fa-hand-o-up fa-fw"></i> Roles</a></li>
+                    <li><a class="dropdown-item" routerLink="/permissions"><i class="fa fa-cog fa-fw"></i> Permitions</a></li>
+                    <li><a class="dropdown-item" routerLink="/audits"><i class="fa fa-archive fa-fw"></i> Audits</a></li>
+                  </ul>
+              </li>
+              <li class="nav-item dropdown d-sm-block d-md-none">
+                <a class="nav-link dropdown-toggle" href="#" id="smallerscreenmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-list-ul" aria-hidden="true"></i>
+                   Entity
+                </a>
+                <div class="dropdown-menu menu-droped" aria-labelledby="smallerscreenmenu">
+                    <p class="active text-center">Contacts</p>
+                    <a class="nav-link dropdown-item" routerLink="/new-contact">Add Contact</a>
+                    <a class="nav-link dropdown-item" routerLink="/contacts">List Contact</a>
+                    <p class="active text-center">Contacts</p>
+                    <a class="nav-link dropdown-item" routerLink="/new-contact">Add Contact</a>
+                    <a class="nav-link dropdown-item" routerLink="/contacts">List Contact</a>
+                    <p class="active text-center">Contacts</p>
+                    <a class="nav-link dropdown-item" routerLink="/new-contact">Add Contact</a>
+                    <a class="nav-link dropdown-item" routerLink="/contacts">List Contact</a>
+                    <p class="active text-center">Contacts</p>
+                    <a class="nav-link dropdown-item" routerLink="/new-contact">Add Contact</a>
+                    <a class="nav-link dropdown-item" routerLink="/contacts">List Contact</a>
+                    <p class="active text-center">Contacts</p>
+                    <a class="nav-link dropdown-item" routerLink="/new-contact">Add Contact</a>
+                    <a class="nav-link dropdown-item" routerLink="/contacts">List Contact</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-flag" aria-hidden="true"></i>
+                     Language
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="#">ENGLISH</a>
+                      <a class="dropdown-item" href="#">FRANCAIS</a>
+                  </ul>
+              </li>
+          </ul>
+      </div>
 </nav>
