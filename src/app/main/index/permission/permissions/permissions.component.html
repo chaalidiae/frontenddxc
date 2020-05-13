@@ -1,11 +1,11 @@
-<div class="container mb-3">
+<div class="mb-3">
   <p></p>
   <h2>{{'LISTOFPERMISSIONS' | translate}}</h2>
 </div>
-<div class="container mb-4">
+<div class="mb-4">
 <button class="btn btn-primary" (click)="onNewPermission()">{{'ADDPERMISSION' | translate}}</button>
 </div>
-<div class ="row container">
+<div class ="row">
     <div class="col-md-3 mb-3">
       <select (change)="selectProperty($event)" class="custom-select" >
         <option *ngFor="let property of properties" value={{property}}>{{property}}</option>
