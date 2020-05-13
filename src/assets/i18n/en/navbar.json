@@ -7,5 +7,6 @@
     "ADMINISTRATION": "Administration",
     "ACCOUNT": "Account",
     "HOME": "Home",
-    "SETTINGS": "Settings"
+    "SETTINGS": "Settings",
+    "ENTITY":"Entity"
   }
