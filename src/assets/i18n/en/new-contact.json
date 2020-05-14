@@ -7,7 +7,7 @@
     "EMAIL": "Email",
     "PHONE": "Phone Number",
     "ACTIONS": "Actions",
-    "NEWCONTACT":"New Contact",
+    "NEWCONTACT":"Contact",
     "SAVE":"Save",
     "EMAILREQUIRED":"Email field is required",
     "EMAILUNVALID":"The email field is not valid",

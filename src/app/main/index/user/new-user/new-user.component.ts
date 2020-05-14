@@ -57,7 +57,7 @@ export class NewUserComponent extends I18nComponent{
         this.user = data;
         this.userRoles=data["roles"];
         this.selectedItems = this.userRoles
-                 .map(item => {return{id:item.id,roleName:item.roleName}})
+                 .map(item => item)
                  .filter((thing, i, arr) => arr.findIndex(t => t.id === thing.id) === i);
       
       console.log("selectedItems efter click on edit: \n"+this.selectedItems);
