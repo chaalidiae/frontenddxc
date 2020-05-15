@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ContactsService} from '../../../../core/contacts.service';
+import {ContactsService} from '../shared/contacts.service';
 import {Contact} from '../../../../shared/model/contact';
 import {ActivatedRoute, Router} from '@angular/router';
 import { I18nComponent } from 'src/app/shared/lang/i18n/container/i18n.component';
@@ -18,7 +18,7 @@ id: string;
 mode = 1;
   constructor(
     private contactservice: ContactsService,
-    private router: Router, 
+    private router: Router,
     private route: ActivatedRoute,
     readonly store: Store<fromI18n.State>,
     readonly translate: TranslateService
@@ -34,7 +34,7 @@ mode = 1;
       }, error => console.log(error));
   }
 
-  
+
 
   OnSubmit() {
     if (this.mode === 1) {

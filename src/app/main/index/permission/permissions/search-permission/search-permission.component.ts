@@ -3,9 +3,9 @@ import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import * as fromI18n from '../../../../../shared/lang/i18n/reducers';
 import { Subject } from 'rxjs';
-import { AuthenticationService } from 'src/app/core/authentification.service';
+import { AuthenticationService } from 'src/app/main/index/login/shared/authentification.service';
 import { Router } from '@angular/router';
-import { PermissionsService } from 'src/app/core/permissions.service';
+import { PermissionsService } from 'src/app/main/index/permission/shared/permissions.service';
 
 @Component({
   selector: 'app-search-permission',
@@ -38,7 +38,7 @@ export class SearchPermissionComponent implements OnInit {
     }, error => {
       this.router.navigateByUrl('/**');
   });
-    
+
   }
 
 searchForPermissions() {
@@ -54,13 +54,13 @@ searchForPermissions() {
   setPage(i,event:any){
     event.preventDefault();
     this.page=i;
-    this.searchForPermissions(); 
+    this.searchForPermissions();
   }
   setPrevious(event:any){
     event.preventDefault();
     if (this.page>0){
     this.page--;
-    this.searchForPermissions(); 
+    this.searchForPermissions();
     }
   }
   setNext(event:any){
@@ -68,15 +68,15 @@ searchForPermissions() {
     let j:number=this.pages.length-1;
     if (this.page<j){
       this.page++;
-      this.searchForPermissions(); 
-    } 
+      this.searchForPermissions();
+    }
   }
 
   selectSize(event:any){
     event.preventDefault();
     this.size=event.target.value;
     this.page=0;
-    this.searchForPermissions(); 
+    this.searchForPermissions();
     }
 
     OnUpdate(id) {

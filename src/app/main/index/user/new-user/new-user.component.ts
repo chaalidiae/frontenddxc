@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
-import { RolesService } from 'src/app/core/roles.service';
+import { RolesService } from 'src/app/main/index/role/shared/roles.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/shared/model/user';
 import { I18nComponent } from 'src/app/shared/lang/i18n/container/i18n.component';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import * as fromI18n from '../../../../shared/lang/i18n/reducers';
-import { UsersService } from 'src/app/core/users.service';
+import { UsersService } from 'src/app/main/index/user/shared/users.service';
 import { Role } from 'src/app/shared/model/role';
 import { FormBuilder } from '@angular/forms';
 
@@ -25,7 +25,7 @@ export class NewUserComponent extends I18nComponent{
   userRoles:Array<Role>;
   selectedItems: Array<any> = [];
   dropdownSettings:IDropdownSettings={};
-  
+
   constructor(
     private fb: FormBuilder,
     private userservice: UsersService,
@@ -36,7 +36,7 @@ export class NewUserComponent extends I18nComponent{
     readonly translate: TranslateService
     ) {
       super(store, translate);
-      
+
       this.user= new User();
       this.getPageOfRoles();
 
@@ -59,12 +59,12 @@ export class NewUserComponent extends I18nComponent{
         this.selectedItems = this.userRoles
                  .map(item => item)
                  .filter((thing, i, arr) => arr.findIndex(t => t.id === thing.id) === i);
-      
+
       console.log("selectedItems efter click on edit: \n"+this.selectedItems);
       }, error => console.log("error : \n"+error));
      }
 
-  
+
   getPageOfRoles() {
     this.rolesService.getRoles()
       .subscribe(data => {
@@ -76,12 +76,12 @@ export class NewUserComponent extends I18nComponent{
         this.router.navigateByUrl('/**');
       });
   }
-  
+
   onItemSelect(item: any) {
     console.log("item : \n"+item);
     console.log("selectedItems : \n"+this.selectedItems);
   }
-  
+
   OnSubmit(){
       this.user.roles=this.selectedItems.map(x=>x);
       if(this.mode === 'add')
@@ -90,7 +90,7 @@ export class NewUserComponent extends I18nComponent{
       this.userservice.updateUser(this.user).subscribe(data => console.log('Done'));
     this.router.navigate(['/user']);
   }
-  
-  
+
+
 
 }

@@ -9,15 +9,15 @@ import {RouterModule} from '@angular/router';
 import {routes} from './app.router';
 import {IndexModule} from './main/index/index.module';
 import {SharedModule} from './shared/shared.module';
-import {AuthenticationService} from './core/authentification.service';
+import {AuthenticationService} from './main/index/login/shared/authentification.service';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-import {ContactsService} from './core/contacts.service';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {ContactsService} from './main/index/contact/shared/contacts.service';
 import {NewContactComponent} from './main/index/contact/new-contact/new-contact.component';
-import {UsersService} from './core/users.service';
+import {UsersService} from './main/index/user/shared/users.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './shared/layout/footer/footer.component';
-import { AuditsService } from './core/audit.service';
+import { AuditsService } from './main/index/audit/shared/audit.service';
 
 import { HttpClient } from '@angular/common/http';
 import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
@@ -31,6 +31,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginModule } from './main/index/login/login.module';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import {TokenInterceptor} from "./core/token.interceptor";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '/navbar.json');
@@ -84,12 +85,18 @@ export function createTranslateLoader(http: HttpClient) {
     NgbModule,
     FontAwesomeModule
   ],
-  providers: [AuthenticationService, 
-    ContactsService, 
-    NewContactComponent, 
+  providers: [AuthenticationService,
+    ContactsService,
+    NewContactComponent,
     UsersService,
-    FooterComponent, 
-    AuditsService ],
+    FooterComponent,
+    AuditsService,
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : TokenInterceptor,
+      multi : true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

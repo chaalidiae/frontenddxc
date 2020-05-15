@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {Router} from '@angular/router';
-import {AuthenticationService} from '../../../core/authentification.service';
+import {AuthenticationService} from './shared/authentification.service';
 import { I18nComponent } from 'src/app/shared/lang/i18n/container/i18n.component';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
@@ -19,11 +19,11 @@ export class LoginComponent extends I18nComponent {
      private router: Router,
      readonly store: Store<fromI18n.State>,
     readonly translate: TranslateService
-     ) { 
+     ) {
       super(store, translate);
      }
 
-  
+
 
   onLogin(user) {
     this.authService.login(user)

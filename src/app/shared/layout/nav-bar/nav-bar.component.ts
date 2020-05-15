@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from '../../../core/authentification.service';
+import {AuthenticationService} from '../../../main/index/login/shared/authentification.service';
 import {Router} from '@angular/router';
 
 import { I18nComponent } from '../../lang/i18n/container/i18n.component';
@@ -23,7 +23,7 @@ export class NavBarComponent extends I18nComponent {
       super(store, translate);
       }
 
-  
+
 
   onLogout() {
     this.authService.logout();

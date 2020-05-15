@@ -3,9 +3,9 @@ import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import * as fromI18n from '../../../../../shared/lang/i18n/reducers';
 import { Subject } from 'rxjs';
-import { AuthenticationService } from 'src/app/core/authentification.service';
+import { AuthenticationService } from 'src/app/main/index/login/shared/authentification.service';
 import { Router } from '@angular/router';
-import { RolesService } from 'src/app/core/roles.service';
+import { RolesService } from 'src/app/main/index/role/shared/roles.service';
 
 @Component({
   selector: 'app-search-role',
@@ -40,7 +40,7 @@ ngOnInit(): void {
     this.router.navigateByUrl('/login');*/
     this.router.navigateByUrl('/**');
 });
-  
+
 }
 
 searchForRoles() {
@@ -63,19 +63,19 @@ selectSize(event:any){
   event.preventDefault();
   this.size=event.target.value;
   this.page=0;
-  this.searchForRoles(); 
+  this.searchForRoles();
 }
 
 setPage(i,event:any){
   event.preventDefault();
   this.page=i;
-  this.searchForRoles(); 
+  this.searchForRoles();
 }
 setPrevious(event:any){
   event.preventDefault();
   if (this.page>0){
   this.page--;
-  this.searchForRoles(); 
+  this.searchForRoles();
   }
 }
 setNext(event:any){
@@ -83,8 +83,8 @@ setNext(event:any){
   let j:number=this.pages.length-1;
   if (this.page<j){
     this.page++;
-    this.searchForRoles(); 
-  } 
-  
+    this.searchForRoles();
+  }
+
 }
 }

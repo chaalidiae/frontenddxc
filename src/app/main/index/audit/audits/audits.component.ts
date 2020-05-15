@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from '../../../../core/authentification.service';
+import {AuthenticationService} from '../../login/shared/authentification.service';
 import {Router} from '@angular/router';
-import {AuditsService} from '../../../../core/audit.service';
+import {AuditsService} from '../shared/audit.service';
 import { I18nComponent } from 'src/app/shared/lang/i18n/container/i18n.component';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
@@ -36,7 +36,7 @@ export class AuditsComponent extends I18nComponent {
   constructor(
     readonly store: Store<fromI18n.State>,
     readonly translate: TranslateService
-    ) { 
+    ) {
       super(store, translate);
       let audit:Audit = new Audit();
       this.properties = Object.getOwnPropertyNames(audit);
@@ -68,13 +68,13 @@ export class AuditsComponent extends I18nComponent {
         this.showOneInput = true;
         this.showOperations = false;
       }
-  
+
     }
     selectOperation(event){
       event.preventDefault();
       this.keyword1 = event.target.value;
     }
-  
+
     OnSubmitOneInput(){
       console.log("property : "+this.property + "\n");
       console.log("value : "+this.keyword1 + "\n");
@@ -82,9 +82,9 @@ export class AuditsComponent extends I18nComponent {
       this.keyword2=null;
       this.keyword3=null;
       this.refrechChild();
-  
+
     }
-  
+
     OnSubmitTwoInputs(){
       console.log("property : "+this.property + "\n");
       console.log("values : "+this.keyword2 + "\n");
@@ -92,7 +92,7 @@ export class AuditsComponent extends I18nComponent {
       this.allAudits=false;
       this.keyword1=null;
       this.refrechChild();
-  
+
     }
-    
+
 }

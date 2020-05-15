@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from '../../../../core/authentification.service';
+import {AuthenticationService} from '../../login/shared/authentification.service';
 import {Router} from '@angular/router';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
@@ -55,8 +55,8 @@ export class ContactsComponent extends I18nComponent {
   }
 
 
-  
-  
+
+
   selectProperty(event){
     let contact:Contact = new Contact();
     event.preventDefault();

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from '../../../../core/authentification.service';
+import {AuthenticationService} from '../../login/shared/authentification.service';
 import {Router} from '@angular/router';
-import {PermissionsService} from '../../../../core/permissions.service';
+import {PermissionsService} from '../shared/permissions.service';
 import { I18nComponent } from 'src/app/shared/lang/i18n/container/i18n.component';
 import * as fromI18n from '../../../../shared/lang/i18n/reducers';
 import { Store } from '@ngrx/store';
@@ -28,7 +28,7 @@ export class PermissionsComponent extends I18nComponent implements OnInit {
               private permissionsService: PermissionsService,
               readonly store: Store<fromI18n.State>,
               readonly translate: TranslateService
-    ) { 
+    ) {
       super(store, translate);
       let permission : Permission =new Permission();
       this.properties = Object.getOwnPropertyNames(permission);
@@ -39,7 +39,7 @@ export class PermissionsComponent extends I18nComponent implements OnInit {
       this.refrechChildSubject.next(true);
     }
 
-    
+
 selectProperty(event){
   event.preventDefault();
   this.property = event.target.value;

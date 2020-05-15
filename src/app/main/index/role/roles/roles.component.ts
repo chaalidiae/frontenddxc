@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from '../../../../core/authentification.service';
+import {AuthenticationService} from '../../login/shared/authentification.service';
 import {Router} from '@angular/router';
-import {RolesService} from '../../../../core/roles.service';
+import {RolesService} from '../shared/roles.service';
 import { I18nComponent } from 'src/app/shared/lang/i18n/container/i18n.component';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
@@ -36,7 +36,7 @@ export class RolesComponent extends I18nComponent implements OnInit {
 refrechChild(){
   this.refrechChildSubject.next(true);
 }
-  
+
 selectProperty(event){
   event.preventDefault();
   this.property = event.target.value;
@@ -50,5 +50,5 @@ OnSubmitOneInput(){
 onNewRole(){
   this.router.navigateByUrl('/new-role');
 }
-  
+
 }

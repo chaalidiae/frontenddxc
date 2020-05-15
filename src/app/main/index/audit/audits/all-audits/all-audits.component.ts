@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from 'src/app/core/authentification.service';
+import { AuthenticationService } from 'src/app/main/index/login/shared/authentification.service';
 import { Router } from '@angular/router';
-import { AuditsService } from 'src/app/core/audit.service';
+import { AuditsService } from 'src/app/main/index/audit/shared/audit.service';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import * as fromI18n from '../../../../../shared/lang/i18n/reducers';
@@ -23,8 +23,8 @@ export class AllAuditsComponent implements OnInit {
     private auditService: AuditsService,
     readonly store: Store<fromI18n.State>,
     readonly translate: TranslateService
-  ) { 
-   
+  ) {
+
   }
   ngOnInit(): void {
     this.getPageOfAudits();
@@ -46,19 +46,19 @@ export class AllAuditsComponent implements OnInit {
     event.preventDefault();
     this.size=event.target.value;
     this.page=0;
-    this.getPageOfAudits(); 
+    this.getPageOfAudits();
   }
 
   setPage(i,event:any){
     event.preventDefault();
     this.page=i;
-    this.getPageOfAudits(); 
+    this.getPageOfAudits();
   }
   setPrevious(event:any){
     event.preventDefault();
     if (this.page>0){
     this.page--;
-    this.getPageOfAudits(); 
+    this.getPageOfAudits();
     }
   }
   setNext(event:any){
@@ -66,9 +66,9 @@ export class AllAuditsComponent implements OnInit {
     let j:number=this.pages.length-1;
     if (this.page<j){
       this.page++;
-      this.getPageOfAudits(); 
-    } 
-    
+      this.getPageOfAudits();
+    }
+
   }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AuthenticationService } from 'src/app/core/authentification.service';
+import { AuthenticationService } from 'src/app/main/index/login/shared/authentification.service';
 import { Router } from '@angular/router';
-import { UsersService } from 'src/app/core/users.service';
+import { UsersService } from 'src/app/main/index/user/shared/users.service';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import * as fromI18n from '../../../../../shared/lang/i18n/reducers';
@@ -27,8 +27,8 @@ export class SearchUserComponent implements OnInit {
     private userService: UsersService,
     readonly store: Store<fromI18n.State>,
     readonly translate: TranslateService
-  ) { 
-    
+  ) {
+
   }
   ngOnInit(): void {
     this.getPageOfUsers();
@@ -40,7 +40,7 @@ export class SearchUserComponent implements OnInit {
    }, error => {
       this.router.navigateByUrl('/**');
   });
-    
+
   }
 
   getPageOfUsers() {
@@ -54,25 +54,25 @@ export class SearchUserComponent implements OnInit {
       });
   }
 
-  
+
 
   selectSize(event:any){
     event.preventDefault();
     this.size=event.target.value;
     this.page=0;
-    this.getPageOfUsers(); 
+    this.getPageOfUsers();
   }
 
   setPage(i,event:any){
     event.preventDefault();
     this.page=i;
-    this.getPageOfUsers(); 
+    this.getPageOfUsers();
   }
   setPrevious(event:any){
     event.preventDefault();
     if (this.page>0){
     this.page--;
-    this.getPageOfUsers(); 
+    this.getPageOfUsers();
     }
   }
   setNext(event:any){
@@ -80,9 +80,9 @@ export class SearchUserComponent implements OnInit {
     let j:number=this.pages.length-1;
     if (this.page<j){
       this.page++;
-      this.getPageOfUsers(); 
-    } 
-    
+      this.getPageOfUsers();
+    }
+
   }
 
   OnUpdate(id){

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from 'src/app/core/authentification.service';
+import { AuthenticationService } from 'src/app/main/index/login/shared/authentification.service';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import * as fromI18n from '../../../../../shared/lang/i18n/reducers';
-import { PermissionsService } from 'src/app/core/permissions.service';
+import { PermissionsService } from 'src/app/main/index/permission/shared/permissions.service';
 
 @Component({
   selector: 'app-all-permissions',
@@ -26,7 +26,7 @@ export class AllPermissionsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   getPageOfPermissions() {
     this.permissionsService.getPageOfPermissions(this.page,this.size)
       .subscribe(data => {
@@ -41,13 +41,13 @@ export class AllPermissionsComponent implements OnInit {
   setPage(i,event:any){
     event.preventDefault();
     this.page=i;
-    this.getPageOfPermissions(); 
+    this.getPageOfPermissions();
   }
   setPrevious(event:any){
     event.preventDefault();
     if (this.page>0){
     this.page--;
-    this.getPageOfPermissions(); 
+    this.getPageOfPermissions();
     }
   }
   setNext(event:any){
@@ -55,15 +55,15 @@ export class AllPermissionsComponent implements OnInit {
     let j:number=this.pages.length-1;
     if (this.page<j){
       this.page++;
-      this.getPageOfPermissions(); 
-    } 
+      this.getPageOfPermissions();
+    }
   }
 
   selectSize(event:any){
     event.preventDefault();
     this.size=event.target.value;
     this.page=0;
-    this.getPageOfPermissions(); 
+    this.getPageOfPermissions();
     }
 
     OnUpdate(id) {

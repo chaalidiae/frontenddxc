@@ -4,7 +4,7 @@ import { I18nComponent } from 'src/app/shared/lang/i18n/container/i18n.component
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import * as fromI18n from '../../../../shared/lang/i18n/reducers';
-import { PermissionsService } from 'src/app/core/Permissions.service';
+import { PermissionsService } from 'src/app/main/index/permission/shared/permissions.service';
 import { Permission } from 'src/app/shared/model/permission';
 
 @Component({
@@ -20,7 +20,7 @@ export class NewPermissionComponent extends I18nComponent{
 
   constructor(
     private permissionsservice: PermissionsService,
-    private router: Router, 
+    private router: Router,
     private route: ActivatedRoute,
     readonly store: Store<fromI18n.State>,
     readonly translate: TranslateService
@@ -34,7 +34,7 @@ export class NewPermissionComponent extends I18nComponent{
       .subscribe(data => {
         this.permission = data;
       }, error => console.log(error));
-  
+
   }
   OnSubmit() {
     if (this.mode === 'add') {

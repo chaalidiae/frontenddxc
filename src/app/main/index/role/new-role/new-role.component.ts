@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { FormBuilder } from '@angular/forms';
-import { PermissionsService } from 'src/app/core/Permissions.service';
+import { PermissionsService } from 'src/app/main/index/permission/shared/permissions.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import * as fromI18n from '../../../../shared/lang/i18n/reducers';
 import { I18nComponent } from 'src/app/shared/lang/i18n/container/i18n.component';
 import { Role } from 'src/app/shared/model/role';
-import { RolesService } from 'src/app/core/roles.service';
+import { RolesService } from 'src/app/main/index/role/shared/roles.service';
 
 @Component({
   selector: 'app-new-role',
@@ -25,7 +25,7 @@ export class NewRoleComponent extends I18nComponent{
   rolePermissions:Array<Role>;
   selectedItems: Array<any> = [];
   dropdownSettings:IDropdownSettings={};
-  
+
   constructor(
     private fb: FormBuilder,
     private roleservice: RolesService,
@@ -60,7 +60,7 @@ export class NewRoleComponent extends I18nComponent{
       this.role = data;
       this.rolePermissions=data["permissions"];
       this.selectedItems = this.rolePermissions;
-    
+
     console.log("selectedItems efter click on edit: \n"+this.selectedItems);
     }, error => console.log("error : \n"+error));
 
@@ -92,6 +92,6 @@ export class NewRoleComponent extends I18nComponent{
   this.router.navigate(['/roles']);
 }
 
-   
+
 
 }
