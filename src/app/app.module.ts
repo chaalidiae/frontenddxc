@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './main/index/index.component';
+import { LoaderService } from './core/loader/shared/loader.service';
 import { NoPageComponent } from './main/no-page/no-page.component';
 import {RouterModule} from '@angular/router';
 import {routes} from './app.router';
@@ -18,6 +19,8 @@ import {UsersService} from './main/index/user/shared/users.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './shared/layout/footer/footer.component';
 import { AuditsService } from './main/index/audit/shared/audit.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 import { HttpClient } from '@angular/common/http';
 import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
@@ -32,6 +35,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginModule } from './main/index/login/login.module';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import {TokenInterceptor} from "./core/token.interceptor";
+import { LoaderComponent } from './core/loader/loader.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '/navbar.json');
@@ -42,7 +46,8 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     AppComponent,
     //IndexComponent,
-    NoPageComponent
+    NoPageComponent,
+    LoaderComponent
   ],
   imports: [
     LoginModule,
@@ -54,6 +59,7 @@ export function createTranslateLoader(http: HttpClient) {
     SharedModule,
     FormsModule,
     HttpClientModule,
+    MatProgressSpinnerModule,
     BrowserAnimationsModule,
     HttpClientModule,
     I18nModule,
@@ -90,6 +96,7 @@ export function createTranslateLoader(http: HttpClient) {
     NewContactComponent,
     UsersService,
     FooterComponent,
+    LoaderService,
     AuditsService,
     {
       provide : HTTP_INTERCEPTORS,
