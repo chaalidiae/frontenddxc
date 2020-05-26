@@ -18,13 +18,13 @@ import { RolesService } from 'src/app/main/index/role/shared/roles.service';
 export class NewRoleComponent extends I18nComponent{
 
   id: string;
-  mode:string ='add';
-  role:any;
+  mode = 1;
+  role: any;
   permissionI: any;
   permissions: any;
-  rolePermissions:Array<Role>;
+  rolePermissions: Array <Role>;
   selectedItems: Array<any> = [];
-  dropdownSettings:IDropdownSettings={};
+  dropdownSettings: IDropdownSettings = {};
 
   constructor(
     private fb: FormBuilder,
@@ -51,18 +51,19 @@ export class NewRoleComponent extends I18nComponent{
     this.route.queryParams.subscribe((params) => {
       this.id = params.id;
     });
-
-    this.route.queryParams.subscribe((params) => {
-      this.id = params.id;
-    });
+    if (typeof this.id === 'undefined'){
+      this.mode = 1;
+    } else {
+      this.mode = 0;
+    }
     this.roleservice.getRoleById(this.id)
     .subscribe(data => {
       this.role = data;
-      this.rolePermissions=data["permissions"];
+      this.rolePermissions = data["permissions"];
       this.selectedItems = this.rolePermissions;
 
-    console.log("selectedItems efter click on edit: \n"+this.selectedItems);
-    }, error => console.log("error : \n"+error));
+    console.log('selectedItems efter click on edit: \n' + this.selectedItems);
+    }, error => console.log('error : \n' + error));
 
    }
 
@@ -70,8 +71,8 @@ export class NewRoleComponent extends I18nComponent{
     this.permissionsService.getPermissions()
       .subscribe(data => {
         this.permissionI = data;
-        this.permissions=this.permissionI.map(
-          item => {return{id:item.id,permissionName:item.permissionName}})
+        this.permissions = this.permissionI.map(
+          item => {return{id: item.id, permissionName: item.permissionName}})
         .filter((value, index, self) => self.indexOf(value) === index);
       }, error => {
         this.router.navigateByUrl('/**');
@@ -79,17 +80,18 @@ export class NewRoleComponent extends I18nComponent{
   }
 
   onItemSelect(item: any) {
-    console.log("item : \n"+item);
-    console.log("selectedItems : \n"+this.selectedItems);
+    console.log('item : \n' + item);
+    console.log('selectedItems : \n' + this.selectedItems);
   }
 
   OnSubmit(){
-    this.role.permissions=this.selectedItems.map(x=>x);
-    if(this.mode === 'add')
-      this.roleservice.saveRole(this.role).subscribe(data => console.log('Done'));
-    else
-    this.roleservice.updateRole(this.role).subscribe(data => console.log('Done'));
-  this.router.navigate(['/roles']);
+    this.role.permissions = this.selectedItems.map(x => x);
+    if (this.mode === 1) {
+      this.roleservice.saveRole(this.role).subscribe(data => console.log('role added successfully'));
+    } else {
+      this.roleservice.updateRole(this.role).subscribe(data => console.log('role updated successfully'));
+    }
+    this.router.navigate(['/roles']);
 }
 
 

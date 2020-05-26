@@ -13,11 +13,9 @@ import { Permission } from 'src/app/shared/model/permission';
   styleUrls: ['./new-permission.component.css']
 })
 export class NewPermissionComponent extends I18nComponent{
-
   permission: any;
   id: string;
-  mode : string='add';
-
+  mode = 1;
   constructor(
     private permissionsservice: PermissionsService,
     private router: Router,
@@ -29,19 +27,24 @@ export class NewPermissionComponent extends I18nComponent{
       this.permission = new Permission();
       this.route.queryParams.subscribe((params) => {
       this.id = params.id;
+      if (typeof this.id === 'undefined') {
+        this.mode = 1;
+      } else {
+        this.mode = 0;
+      }
     });
-    this.permissionsservice.getPermissionById(this.id)
+      this.permissionsservice.getPermissionById(this.id)
       .subscribe(data => {
         this.permission = data;
       }, error => console.log(error));
 
   }
   OnSubmit() {
-    if (this.mode === 'add') {
-      this.permissionsservice.savePermission(this.permission).subscribe(data => console.log('Done'));
+    if (this.mode === 1) {
+      this.permissionsservice.savePermission(this.permission).subscribe(data => console.log('permission saved successfully'));
       this.router.navigate(['/permissions']);
     } else {
-      this.permissionsservice.updatePermission(this.permission).subscribe(data => console.log('Done'));
+      this.permissionsservice.updatePermission(this.permission).subscribe(data => console.log('permission updated successfully'));
       this.router.navigate(['/permissions']);
     }
   }

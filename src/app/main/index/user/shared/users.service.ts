@@ -27,6 +27,6 @@ export class UsersService {
     return this.http.post(GlobalConstants.host + '/users' , user);
     }
   updateUser(user: User) {
-    return this.http.put(GlobalConstants.host + + '/users/' + user.id , user);
+    return this.http.put(GlobalConstants.host  + '/users/' + user.id , user);
   }
 }

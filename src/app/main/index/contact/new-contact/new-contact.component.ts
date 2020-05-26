@@ -24,12 +24,17 @@ mode = 1;
     readonly translate: TranslateService
     ) {
       super(store, translate);
-    this.contact = new Contact();
-    this.route.queryParams.subscribe((params) => {
+      this.contact = new Contact();
+      this.route.queryParams.subscribe((params) => {
       this.id = params.id;
     });
-    this.contactservice.getContactById(this.id)
+      this.contactservice.getContactById(this.id)
       .subscribe(data => {
+        if (typeof this.id === 'undefined'){
+          this.mode = 1;
+        } else {
+          this.mode = 0;
+        }
         this.contact = data;
       }, error => console.log(error));
   }
@@ -38,10 +43,10 @@ mode = 1;
 
   OnSubmit() {
     if (this.mode === 1) {
-      this.contactservice.saveContact(this.contact).subscribe(data => console.log('Done'));
+      this.contactservice.saveContact(this.contact).subscribe(data => console.log('contact added successfully'));
       this.router.navigate(['/contacts']);
     } else {
-      this.contactservice.updateContact(this.contact).subscribe(data => console.log('Done'));
+      this.contactservice.updateContact(this.contact).subscribe(data => console.log('contact updated successfully'));
       this.router.navigate(['/contacts']);
     }
   }

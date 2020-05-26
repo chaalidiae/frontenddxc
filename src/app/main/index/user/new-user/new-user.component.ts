@@ -18,7 +18,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class NewUserComponent extends I18nComponent{
   id: string;
-  mode:string ='add';
+  mode = 1;
   user:any;
   rolesI: any;
   roles: any;
@@ -37,7 +37,7 @@ export class NewUserComponent extends I18nComponent{
     ) {
       super(store, translate);
 
-      this.user= new User();
+      this.user = new User();
       this.getPageOfRoles();
 
       this.dropdownSettings = {
@@ -51,17 +51,23 @@ export class NewUserComponent extends I18nComponent{
       };
       this.route.queryParams.subscribe((params) => {
         this.id = params.id;
+        if (typeof this.id === 'undefined'){
+          this.mode = 1;
+        }
+        else {
+          this.mode = 0;
+        }
       });
       this.userservice.getUserById(this.id)
       .subscribe(data => {
         this.user = data;
-        this.userRoles=data["roles"];
+        this.userRoles = data['roles'];
         this.selectedItems = this.userRoles
                  .map(item => item)
                  .filter((thing, i, arr) => arr.findIndex(t => t.id === thing.id) === i);
 
-      console.log("selectedItems efter click on edit: \n"+this.selectedItems);
-      }, error => console.log("error : \n"+error));
+      console.log('selectedItems efter click on edit: \n' + this.selectedItems);
+      }, error => console.log('error : \n' + error));
      }
 
 
@@ -69,8 +75,8 @@ export class NewUserComponent extends I18nComponent{
     this.rolesService.getRoles()
       .subscribe(data => {
         this.rolesI = data;
-        this.roles=this.rolesI.map(
-          item => {return{id:item.id,roleName:item.roleName}})
+        this.roles = this.rolesI.map(
+          item => {return{id: item.id, roleName: item.roleName}})
         .filter((value, index, self) => self.indexOf(value) === index);
       }, error => {
         this.router.navigateByUrl('/**');
@@ -78,17 +84,18 @@ export class NewUserComponent extends I18nComponent{
   }
 
   onItemSelect(item: any) {
-    console.log("item : \n"+item);
-    console.log("selectedItems : \n"+this.selectedItems);
+    console.log('item : \n' + item);
+    console.log('electedItems : \n' + this.selectedItems);
   }
 
   OnSubmit(){
-      this.user.roles=this.selectedItems.map(x=>x);
-      if(this.mode === 'add')
-        this.userservice.saveUser(this.user).subscribe(data => console.log('Done'));
-      else
-      this.userservice.updateUser(this.user).subscribe(data => console.log('Done'));
-    this.router.navigate(['/user']);
+      this.user.roles = this.selectedItems.map(x => x);
+      if (this.mode === 1) {
+        this.userservice.saveUser(this.user).subscribe(data => console.log('user added successfully'));
+      } else {
+        this.userservice.updateUser(this.user).subscribe(data => console.log('user updated successfully'));
+      }
+      this.router.navigate(['/user']);
   }
 
 

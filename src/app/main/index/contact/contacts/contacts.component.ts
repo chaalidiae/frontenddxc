@@ -15,16 +15,16 @@ import { Subject } from 'rxjs';
   styleUrls: ['./contacts.component.css']
 })
 export class ContactsComponent extends I18nComponent {
-  properties : any;
-  property : any;
-  public showTwoInputs:boolean = false;
-  public showOneInput:boolean = true;
+  properties: any;
+  property: any;
+  public showTwoInputs = false;
+  public showOneInput = true;
   keyword1: any;
   keyword2: any;
   keyword3: any;
   refrechChildSubject: Subject<boolean> = new Subject<boolean>();
 
-  allContacts:boolean=true;
+  allContacts = true;
 
   constructor(
     private authService: AuthenticationService,
@@ -33,15 +33,15 @@ export class ContactsComponent extends I18nComponent {
     readonly translate: TranslateService
     ) {
       super(store, translate);
-      let contact:Contact = new Contact();
+      const contact: Contact = new Contact();
       this.properties = Object.getOwnPropertyNames(contact);
       this.property = this.properties[0];
   }
 
-  refrechChild(){
+  refrechChild() {
    this.refrechChildSubject.next(true);
 }
-  isDate(val):boolean {
+  isDate(val): boolean {
       return val instanceof Date;
   }
 
@@ -57,32 +57,32 @@ export class ContactsComponent extends I18nComponent {
 
 
 
-  selectProperty(event){
-    let contact:Contact = new Contact();
+  selectProperty(event) {
+    const contact: Contact = new Contact();
     event.preventDefault();
     this.property = event.target.value;
     if (this.isDate(contact[this.property])) {
       this.showTwoInputs = true;
       this.showOneInput = false;
-      this.keyword1=null;
-    }else{
+      this.keyword1 = null;
+    } else {
       this.showTwoInputs = false;
       this.showOneInput = true;
     }
 
   }
 
-  OnSubmitOneInput(){
-    this.allContacts=false;
-    this.keyword2=null;
-    this.keyword3=null;
+  OnSubmitOneInput() {
+    this.allContacts = false;
+    this.keyword2 = null;
+    this.keyword3 = null;
     this.refrechChild();
 
   }
 
-  OnSubmitTwoInputs(){
-    this.allContacts=false;
-    this.keyword1=null;
+  OnSubmitTwoInputs() {
+    this.allContacts = false;
+    this.keyword1 = null;
     this.refrechChild();
 
   }

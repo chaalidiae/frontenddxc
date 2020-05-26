@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <a class="navbar-brand" routerLink="/home">DXC <small class="text-muted">Framework</small></a>
+      <a class="navbar-brand">DXC <small class="text-muted">Framework</small></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
       <div id="navbarNavDropdown" class="navbar-collapse collapse">
           <ul class="navbar-nav ml-auto">
-              
+
               <li class="nav-item">
                   <a class="nav-link" routerLink="/home">
                     <i class="fa fa-home" aria-hidden="true"></i>
@@ -18,7 +18,7 @@
                     {{'ACCOUNT' | translate}}
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    
+
                       <li><a class="dropdown-item" href="#"><i class="fa fa-wrench fa-fw"></i> {{'SETTINGS' | translate}}</a></li>
                       <li><a class="dropdown-item pointer" (click)="onLogout()"><i class="fa fa-sign-out fa-fw"></i> {{'LOGOUT' | translate}}</a></li>
                   </ul>
