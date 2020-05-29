@@ -14,7 +14,7 @@ export const IndexRoutes: Route[] = [
   {
     path: 'contacts',
     loadChildren: () =>
-      import('./contact/contacts/contacts.module').then(m => m.ContactsModule)
+      import('./contacts/contacts.module').then(m => m.ContactsModule)
   },
   {
     path: 'login',
@@ -34,7 +34,7 @@ export const IndexRoutes: Route[] = [
   {
     path: 'new-contact',
     loadChildren: () =>
-      import('./contact/new-contact/new-contact.module').then(m => m.NewContactModule)
+      import('./contacts/new-contact/new-contact.module').then(m => m.NewContactModule)
   },
   {
     path: 'roles',

@@ -9,15 +9,15 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { I18nModule } from 'src/app/shared/lang/i18n/i18n.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { AllContactsComponent } from './all-contacts/all-contacts.component';
-import { SearchContactsComponent } from './search-contacts/search-contacts.component';
 import { RouterModule } from '@angular/router';
+import { SearchContactComponent } from './all-contacts/search-contact/search-contact.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../../../../../assets/i18n/', '/contacts.json');
 }
 
 @NgModule({
-  declarations: [ContactsComponent, AllContactsComponent, SearchContactsComponent],
+  declarations: [ContactsComponent, AllContactsComponent, SearchContactComponent],
   imports: [
     RouterModule,
     CommonModule,
@@ -32,6 +32,6 @@ export function createTranslateLoader(http: HttpClient) {
       },
       isolate: true
     })
-  ],exports:[ContactsComponent]
+  ], exports:[ContactsComponent]
 })
 export class ContactsModule { }

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/main/index/login/shared/authentification.service';
 import { Router } from '@angular/router';
-import { ContactsService } from 'src/app/main/index/contact/shared/contacts.service';
+import { ContactsService } from 'src/app/main/index/contacts/shared/contacts.service';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
-import * as fromI18n from '../../../../../shared/lang/i18n/reducers';
+import * as fromI18n from '../../../../shared/lang/i18n/reducers';
 import { ngModuleJitUrl } from '@angular/compiler';
 
 @Component({

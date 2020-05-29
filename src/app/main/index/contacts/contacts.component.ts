@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from '../../login/shared/authentification.service';
+import {AuthenticationService} from '../login/shared/authentification.service';
 import {Router} from '@angular/router';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
-import * as fromI18n from '../../../../shared/lang/i18n/reducers';
+import * as fromI18n from '../../../shared/lang/i18n/reducers';
 import { I18nComponent } from 'src/app/shared/lang/i18n/container/i18n.component';
 import { Contact } from 'src/app/shared/model/contact';
 import { Subject } from 'rxjs';
@@ -77,7 +77,6 @@ export class ContactsComponent extends I18nComponent {
     this.keyword2 = null;
     this.keyword3 = null;
     this.refrechChild();
-
   }
 
   OnSubmitTwoInputs() {
