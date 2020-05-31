@@ -2,7 +2,7 @@
     <p></p>
     <h2>{{'AUDIT' | translate}}</h2>
 </div>
-<div class ="row">   
+<div class ="row">
     <div class="col-md-3 mb-3">
       <select (change)="selectProperty($event)" class="custom-select" >
         <option *ngFor="let property of properties" value={{property}}>{{property}}</option>
@@ -12,7 +12,7 @@
       <ng-container *ngIf="showOneInput">
         <form class="container" #searchOnInputForm="ngForm" (ngSubmit)="OnSubmitOneInput()" novalidate>
           <div class="input-group ">
-            <input class="form-control my-0 py-1 amber-border" #motCle="ngModel" 
+            <input class="form-control my-0 py-1 amber-border" #motCle="ngModel"
               type="text" placeholder="Search" name="keyword1" [(ngModel)]="keyword1">
             <button class="btn btn-success" type="submit">{{'SEARCH' | translate}}</button>
           </div>
@@ -21,9 +21,9 @@
       <ng-container *ngIf="showTwoInputs">
         <form class="container" #searchTwoInputsForm="ngForm" (ngSubmit)="OnSubmitTwoInputs()" novalidate>
           <div class="input-group md-form form-xs ">
-              <input class="form-control  amber-border" #motCle1="ngModel" 
+              <input class="form-control  amber-border" #motCle1="ngModel"
                     type="date" placeholder="Search" name="keyword2" [(ngModel)]="keyword2">
-              <input class="form-control my-0 py-1 amber-border" 
+              <input class="form-control my-0 py-1 amber-border"
                     type="date" placeholder="Search" name="keyword3" [(ngModel)]="keyword3">
               <button class="btn btn-success" type="submit">{{'SEARCH' | translate}}</button>
           </div>
@@ -38,16 +38,15 @@
       </div>
       </ng-container>
     </div>
-</div>      
+</div>
 <div *ngIf="allAudits">
   <app-all-audits></app-all-audits>
 </div>
 <div *ngIf="allAudits === false">
-  <app-search-audit   [keyword1]='keyword1'
+  <app-search-audits   [keyword1]='keyword1'
                       [keyword2]='keyword2'
                       [keyword3]='keyword3'
                       [property]='property'
                       [refrechChildSubject]="refrechChildSubject.asObservable()"
-                       ></app-search-audit>
+                       ></app-search-audits>
   </div>
-  

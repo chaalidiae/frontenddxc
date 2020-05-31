@@ -1,64 +1,63 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/main/index/login/shared/authentification.service';
 import { Router } from '@angular/router';
-import { AuditsService } from 'src/app/main/index/audit/audits/shared/audit.service';
+import { UsersService } from 'src/app/main/index/user/shared/users.service';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
-import * as fromI18n from '../../../../../shared/lang/i18n/reducers';
+import * as fromI18n from '../../../../shared/lang/i18n/reducers';
 
 @Component({
-  selector: 'app-all-audits',
-  templateUrl: './all-audits.component.html',
-  styleUrls: ['./all-audits.component.css']
+  selector: 'app-all-users',
+  templateUrl: './all-users.component.html',
+  styleUrls: ['./all-users.component.css']
 })
-export class AllAuditsComponent implements OnInit {
-  audits: any;
+export class AllUsersComponent implements OnInit {
+  users: any;
   private page :number=0;
   pages:Array<number>;
   private size: number=5;
-
   constructor(
     private authService: AuthenticationService,
     private router: Router,
-    private auditService: AuditsService,
+    private userService: UsersService,
     readonly store: Store<fromI18n.State>,
     readonly translate: TranslateService
   ) {
 
+    this.getPageOfUsers();
   }
-  ngOnInit(): void {
-    this.getPageOfAudits();
-  }
-  getPageOfAudits() {
-    this.auditService.getPageOfAudits(this.page,this.size)
+  getPageOfUsers() {
+    this.userService.getPageOfUsers(this.page,this.size)
       .subscribe(data => {
         console.log(data)
-        this.audits = data['content'];
+        this.users = data['content'];
         this.pages=new Array(data['totalPages']);
-        //this.Audits = data;
       }, error => {
         this.authService.logout();
         this.router.navigateByUrl('/login');
       });
   }
 
+  ngOnInit(): void {
+  }
+
   selectSize(event:any){
     event.preventDefault();
     this.size=event.target.value;
     this.page=0;
-    this.getPageOfAudits();
+    this.getPageOfUsers();
   }
 
   setPage(i,event:any){
     event.preventDefault();
     this.page=i;
-    this.getPageOfAudits();
+    this.getPageOfUsers();
   }
   setPrevious(event:any){
     event.preventDefault();
     if (this.page>0){
     this.page--;
-    this.getPageOfAudits();
+    this.getPageOfUsers();
     }
   }
   setNext(event:any){
@@ -66,9 +65,12 @@ export class AllAuditsComponent implements OnInit {
     let j:number=this.pages.length-1;
     if (this.page<j){
       this.page++;
-      this.getPageOfAudits();
+      this.getPageOfUsers();
     }
 
+  }
+  OnUpdate(id){
+    this.router.navigate(['/new-user'], {queryParams: {id}});
   }
 
 }

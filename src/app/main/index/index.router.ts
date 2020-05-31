@@ -24,7 +24,7 @@ export const IndexRoutes: Route[] = [
   {
     path: 'user',
     loadChildren: () =>
-      import('./user/user/user.module').then(m => m.UserModule)
+      import('./user/user.module').then(m => m.UserModule)
   },
   {
     path: 'new-user',
@@ -44,17 +44,17 @@ export const IndexRoutes: Route[] = [
   {
     path: 'new-role',
     loadChildren: () =>
-      import('./role/new-role/new-role.module').then(m => m.NewRoleModule)
+      import('./role/roles/new-role/new-role.module').then(m => m.NewRoleModule)
   },
   {
     path: 'permissions',
     loadChildren: () =>
-      import('./permission/permissions/permissions.module').then(m => m.PermissionsModule)
+      import('./permissions/permissions.module').then(m => m.PermissionsModule)
   },
   {
     path: 'new-permission',
     loadChildren: () =>
-      import('./permission/new-permission/new-permission.module').then(m => m.NewPermissionModule)
+      import('./permissions/new-permission/new-permission.module').then(m => m.NewPermissionModule)
   },
   {
     path: 'audits',

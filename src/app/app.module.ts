@@ -18,7 +18,7 @@ import {NewContactComponent} from './main/index/contacts/new-contact/new-contact
 import {UsersService} from './main/index/user/shared/users.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './shared/layout/footer/footer.component';
-import { AuditsService } from './main/index/audit/shared/audit.service';
+import { AuditsService } from './main/index/audit/audits/shared/audit.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 

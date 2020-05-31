@@ -1,0 +1,36 @@
+<div class="container-fluid mb-3">
+  <p></p>
+  <h2>{{'LISTOFUSERS' | translate}}</h2>
+</div>
+<div class="mb-4 pl-3">
+  <button class="btn btn-primary" (click)="onNewUser()">{{'NEWUSER' | translate}}</button>
+  </div>
+<div class="row container">
+    <div class="col-md-3 mb-3">
+      <select (change)="selectProperty($event)" class="custom-select" >
+        <option *ngFor="let property of properties" value={{property}}>{{property}}</option>
+      </select>
+    </div>
+    <div class="col-md-8 mb-3">
+  <form class="container" #searchOnInputForm="ngForm" (ngSubmit)="OnSubmitOneInput()" novalidate>
+    <div class="input-group ">
+      <input class="form-control my-0 py-1 amber-border" #motCle="ngModel"
+            type="text" placeholder="Search" name="keyword" [(ngModel)]="keyword">
+      <button class="btn btn-success" type="submit">{{'SEARCH' | translate}}</button>
+    </div>
+  </form>
+</div>
+</div>
+
+  <div>
+    <div *ngIf="allUsers">
+      <app-all-users></app-all-users>
+    </div>
+
+    <div *ngIf="allUsers === false">
+      <app-search-users [keyword]='keyword'
+                       [property]='property'
+                       [refrechChildSubject]="refrechChildSubject.asObservable()"
+                          ></app-search-users>
+    </div>
+  </div>

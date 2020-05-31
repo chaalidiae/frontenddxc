@@ -14,7 +14,7 @@
   <div class="col-md-8 mb-3">
   <form class="container" #searchOnInputForm="ngForm" (ngSubmit)="OnSubmitOneInput()" novalidate>
     <div class="input-group ">
-      <input class="form-control my-0 py-1 amber-border" #motCle="ngModel" 
+      <input class="form-control my-0 py-1 amber-border" #motCle="ngModel"
             type="text" placeholder="Search" name="keyword" [(ngModel)]="keyword">
       <button class="btn btn-success" type="submit">{{'SEARCH' | translate}}</button>
     </div>
@@ -27,10 +27,10 @@
   </div>
 
   <div *ngIf="allRoles === false">
-    <app-search-role [keyword]='keyword'
+    <app-search-roles [keyword]='keyword'
                     [property]='property'
                     [refrechChildSubject]="refrechChildSubject.asObservable()"
-                        ></app-search-role>
+                        ></app-search-roles>
       <button class="btn btn-primary">{{'NEWRole' | translate}}</button>
   </div>
 </div>
