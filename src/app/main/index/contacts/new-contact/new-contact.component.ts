@@ -10,7 +10,8 @@ import * as fromI18n from '../../../../shared/lang/i18n/reducers';
 @Component({
   selector: 'app-new-contact',
   templateUrl: './new-contact.component.html',
-  styleUrls: ['./new-contact.component.css']
+  styleUrls: ['./new-contact.component.css'],
+  providers: [ContactsService]
 })
 export class NewContactComponent extends I18nComponent{
 contact: any;
