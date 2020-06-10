@@ -10,7 +10,8 @@ import { ngModuleJitUrl } from '@angular/compiler';
 @Component({
   selector: 'app-all-contacts',
   templateUrl: './all-contacts.component.html',
-  styleUrls: ['./all-contacts.component.css']
+  styleUrls: ['./all-contacts.component.css'],
+  providers: [ContactsService]
 })
 export class AllContactsComponent implements OnInit {
   contacts: any;

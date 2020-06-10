@@ -7,12 +7,14 @@ import * as fromI18n from '../../../shared/lang/i18n/reducers';
 import { I18nComponent } from 'src/app/shared/lang/i18n/container/i18n.component';
 import { Contact } from 'src/app/shared/model/contact';
 import { Subject } from 'rxjs';
+import { ContactsService } from './shared/contacts.service';
 
 
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
-  styleUrls: ['./contacts.component.css']
+  styleUrls: ['./contacts.component.css'],
+  providers: [ContactsService]
 })
 export class ContactsComponent extends I18nComponent {
   properties: any;
