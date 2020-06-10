@@ -45,6 +45,9 @@ export class SearchContactComponent implements OnInit {
 
   }
 
+  /**
+   * Cette fonction permet de faire la recherche selon le nombre de mots clé.
+   */
   doSearch() {
     if (this.keyword1 == null) {
       this.searchForContactsWithTwokeywords();
@@ -53,6 +56,9 @@ export class SearchContactComponent implements OnInit {
     }
   }
 
+  /**
+   * Faire la recherche avec un seul mot clé.
+   */
   searchForContactsWithOnekeyword() {
     this.contactService.searchForContactsWithOnekeyword(this.keyword1, this.property, this.page, this.size)
       .subscribe(data => {
@@ -64,6 +70,9 @@ export class SearchContactComponent implements OnInit {
       });
   }
 
+  /**
+   * Faire la recherche avec deux mots clé.
+   */
   searchForContactsWithTwokeywords() {
     this.contactService.searchForContactsWithTwokeywords(this.keyword2, this.keyword3, this.property, this.page, this.size)
       .subscribe(data => {
@@ -75,6 +84,11 @@ export class SearchContactComponent implements OnInit {
       });
   }
 
+  /**
+   * supression d'un contact.
+   * @param id
+   * @constructor
+   */
   OnDelete(id) {
     const confirm = window.confirm('Est vous sure ?');
     if (confirm === true) {
@@ -86,10 +100,17 @@ export class SearchContactComponent implements OnInit {
     }
   }
 
+  /**
+   * Mise a jour d'un contact.
+   * @param id
+   * @constructor
+   */
   OnUpdate(id) {
     this.router.navigate(['/new-contact'], {queryParams: {id}});
   }
-
+  /*
+  Les fonctions ci-dessous permet de faire la pagination.
+   */
   selectSize(event: any) {
     event.preventDefault();
     this.size = event.target.value;

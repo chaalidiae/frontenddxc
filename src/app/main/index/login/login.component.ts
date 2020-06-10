@@ -24,7 +24,10 @@ export class LoginComponent extends I18nComponent {
      }
 
 
-
+  /**
+   * Cette fonction permet de faire l'authentification.
+   * @param user
+   */
   onLogin(user) {
     this.authService.login(user)
       .subscribe(resp => {

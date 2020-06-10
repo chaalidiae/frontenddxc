@@ -45,17 +45,20 @@ export class ContactsComponent extends I18nComponent {
       return val instanceof Date;
   }
 
+  /**
+   * Cette fonction permet de faire le logout.
+   */
   onLogout() {
     this.authService.logout();
     this.router.navigateByUrl('/login');
   }
 
+  /**
+   * Cette fonction nous redirige vers le component new-contact.
+   */
   onNewContact() {
     this.router.navigateByUrl('/new-contact');
   }
-
-
-
 
   selectProperty(event) {
     const contact: Contact = new Contact();

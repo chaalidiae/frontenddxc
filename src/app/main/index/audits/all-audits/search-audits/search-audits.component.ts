@@ -1,10 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Subject} from 'rxjs';
-import {AuthenticationService} from '../../../../login/shared/authentification.service';
+import {AuthenticationService} from '../../../login/shared/authentification.service';
 import {Router} from '@angular/router';
 import {AuditsService} from '../../shared/audit.service';
 import {Store} from '@ngrx/store';
-import * as fromI18n from '../../../../../../shared/lang/i18n/reducers';
+import * as fromI18n from '../../../../../shared/lang/i18n/reducers';
 import {TranslateService} from '@ngx-translate/core';
 
 @Component({
@@ -45,6 +45,9 @@ export class SearchAuditsComponent implements OnInit {
 
   }
 
+  /**
+   * Cette fonction est résponsable de faire la recherche en se basant sur les mot clés.
+   */
   doSearch(){
     console.log("property : "+this.property);
     console.log("keyword1 : "+this.keyword1);
@@ -52,11 +55,14 @@ export class SearchAuditsComponent implements OnInit {
     console.log("keyword3 : "+this.keyword3);
     if(this.keyword1 == null) {
       this.searchForAuditsWithTwokeywords();
-    }else if(this.keyword2==null&&this.keyword3==null){
+    } else if (this.keyword2 == null && this.keyword3 == null){
       this.searchForAuditsWithOnekeyword();
     }
   }
 
+  /**
+   * Cette fonction permet d'effectuer la recherche sur les audits en se basant sur un seul mot clé.
+   */
   searchForAuditsWithOnekeyword() {
     this.auditService.searchForAuditsWithOnekeyword(this.keyword1,this.property,this.page,this.size)
       .subscribe(data => {
@@ -68,6 +74,9 @@ export class SearchAuditsComponent implements OnInit {
       });
   }
 
+  /**
+   * Cette fonction est résponsable de la recherche en se basant sur deux mots clé.
+   */
   searchForAuditsWithTwokeywords() {
     this.auditService.searchForAuditsWithTwokeywords(this.keyword2,this.keyword3,this.property,this.page,this.size)
       .subscribe(data => {
@@ -79,6 +88,9 @@ export class SearchAuditsComponent implements OnInit {
       });
   }
 
+  /*
+    L'ensemble des fonctions ci-dessous sont résponsables de la pagination.
+   */
   selectSize(event:any){
     event.preventDefault();
     this.size=event.target.value;

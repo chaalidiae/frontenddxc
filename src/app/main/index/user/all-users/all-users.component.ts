@@ -27,12 +27,13 @@ export class AllUsersComponent implements OnInit {
     this.getPageOfUsers();
   }
   getPageOfUsers() {
-    this.userService.getPageOfUsers(this.page,this.size)
+    this.userService.getPageOfUsers(this.page, this.size)
       .subscribe(data => {
         console.log(data)
         this.users = data['content'];
         this.pages=new Array(data['totalPages']);
       }, error => {
+        console.log(error);
         this.authService.logout();
         this.router.navigateByUrl('/login');
       });
@@ -71,6 +72,17 @@ export class AllUsersComponent implements OnInit {
   }
   OnUpdate(id){
     this.router.navigate(['/new-user'], {queryParams: {id}});
+  }
+
+  OnDelete(id) {
+    const confirm = window.confirm('Est vous sure ?');
+    if (confirm === true) {
+      this.userService.deleteUser(id).subscribe(
+        data => {
+          this.getPageOfUsers();
+        }
+      );
+    }
   }
 
 }

@@ -38,4 +38,7 @@ export class RolesService {
   updateRole(role: Role) {
     return this.http.put(GlobalConstants.host + '/roles/' + role.id , role);
   }
+  deleteRole(id) {
+    return this.http.delete(GlobalConstants.host + '/roles/' + id);
+  }
 }

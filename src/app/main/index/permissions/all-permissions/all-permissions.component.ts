@@ -70,4 +70,14 @@ export class AllPermissionsComponent implements OnInit {
       this.router.navigate(['/new-permission'], {queryParams: {id}});
     }
 
+    OnDelete(id) {
+      const confirm = window.confirm('Est vous sure ?');
+      if (confirm === true) {
+        this.permissionsService.deletePermission(id).subscribe(
+          data => {
+            this.getPageOfPermissions();
+          }
+        );
+      }
+    }
 }

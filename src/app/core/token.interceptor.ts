@@ -9,8 +9,12 @@ import {AuthenticationService} from '../main/index/login/shared/authentification
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import { finalize } from 'rxjs/operators';
-import {LoaderService} from "./loader/shared/loader.service";
+import {LoaderService} from './loader/shared/loader.service';
 
+/**
+ * Cette classe permet d'interpréter tout les requette sortante en ajoutant le Token à chaque requette,
+ * ainsi au cas de latence, elle va afficher un spinner.
+ */
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
   constructor(public auth: AuthenticationService, public router: Router, public loaderService: LoaderService) {}

@@ -35,4 +35,7 @@ export class PermissionsService {
     if (this.authService.jwtToken == null) { this.authService.LoadToken(); }
     return this.http.post(GlobalConstants.host + '/permissions' , permission);
     }
+  deletePermission(id) {
+    return this.http.delete(GlobalConstants.host + '/permissions/' + id);
+  }
 }

@@ -11,8 +11,7 @@
         </ul>
       </td>
       <button class="btn btn-outline-success mr-2" (click)="OnUpdate(user.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>
-      <a class="btn btn-danger" href="#">
-        <i class="fa fa-trash-o fa-lg"></i> Delete</a>
+      <button class="btn btn-outline-danger" (click)="OnDelete(user.id)">Delete</button>
     </tr>
   </table>
   <ul class="pagination">

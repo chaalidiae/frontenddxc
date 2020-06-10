@@ -10,39 +10,76 @@ export class ContactsService {
 constructor(private http: HttpClient, private authService: AuthenticationService) {
   }
 
-getPageOfContacts(page: number, size: number) {
+  /**
+   * Retourner une page des contacts.
+   * @param page
+   * @param size
+   */
+  getPageOfContacts(page: number, size: number) {
     if (this.authService.jwtToken == null) { this.authService.LoadToken(); }
     return this.http.get
     (GlobalConstants.host + '/getPageOfContacts?page=' + page + '&size=' + size);
   }
 
-searchForContactsWithOnekeyword(keyword: string, column: string, page: number, size: number) {
+  /**
+   * Rechercher un contact avec un seul mot clé
+   * @param keyword
+   * @param column
+   * @param page
+   * @param size
+   */
+  searchForContactsWithOnekeyword(keyword: string, column: string, page: number, size: number) {
     if (this.authService.jwtToken == null) { this.authService.LoadToken(); }
     return this.http.get
     (GlobalConstants.host + '/searchForContactsWithOnekeyword?page=' + page + '&size=' + size + '&keyword=' + keyword + '&column=' + column);
   }
 
-searchForContactsWithTwokeywords(keyword1: string, keyword2: string, column: string, page: number, size: number) {
+  /**
+   * Rechercher un contact avec deux mots clé.
+   * @param keyword1
+   * @param keyword2
+   * @param column
+   * @param page
+   * @param size
+   */
+  searchForContactsWithTwokeywords(keyword1: string, keyword2: string, column: string, page: number, size: number) {
     if (this.authService.jwtToken == null) { this.authService.LoadToken(); }
     return this.http.get
     (GlobalConstants.host + '/searchForContactsWithTwoKeywords?page='
       + page + '&size=' + size + '&keyword1=' + keyword1 + '&keyword2=' + keyword2 + '&column=' + column);
   }
 
-saveContact(contact) {
+  /**
+   * Ajouter un contact
+   * @param contact
+   */
+  saveContact(contact) {
   if (this.authService.jwtToken == null) { this.authService.LoadToken(); }
   return this.http.post(GlobalConstants.host + '/contacts' , contact);
   }
 
-deleteContact(id) {
+  /**
+   * Supprimer un contact.
+   * @param id
+   */
+  deleteContact(id) {
   if (this.authService.jwtToken == null) { this.authService.LoadToken(); }
   return this.http.delete(GlobalConstants.host + '/contacts/' + id);
 }
-updateContact(contact: Contact) {
+
+  /**
+   * La mise a jour d'un contact.
+   * @param contact
+   */
+  updateContact(contact: Contact) {
   return this.http.put(GlobalConstants.host + '/contacts/' + contact.id , contact);
 }
 
-getContactById(id) {
+  /**
+   * Récupération d'un contact en se basant sur son ID.
+   * @param id
+   */
+  getContactById(id) {
   return this.http.get(GlobalConstants.host + '/contacts/' + id);
 }
 }

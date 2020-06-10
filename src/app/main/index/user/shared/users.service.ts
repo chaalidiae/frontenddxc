@@ -29,4 +29,7 @@ export class UsersService {
   updateUser(user: User) {
     return this.http.put(GlobalConstants.host  + '/users/' + user.id , user);
   }
+  deleteUser(id) {
+    return this.http.delete(GlobalConstants.host + '/users/' + id);
+  }
 }

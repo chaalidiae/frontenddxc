@@ -40,7 +40,10 @@ mode = 1;
   }
 
 
-
+  /**
+   * Cette fonction permet de faire l'ajout ou bien la modification selon le mode.
+   * @constructor
+   */
   OnSubmit() {
     if (this.mode === 1) {
       this.contactservice.saveContact(this.contact).subscribe(data => console.log('contact added successfully'));

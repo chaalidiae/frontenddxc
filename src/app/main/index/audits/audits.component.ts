@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from '../../login/shared/authentification.service';
+import {AuthenticationService} from '../login/shared/authentification.service';
 import {Router} from '@angular/router';
 import {AuditsService} from './shared/audit.service';
 import { I18nComponent } from 'src/app/shared/lang/i18n/container/i18n.component';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
-import * as fromI18n from '../../../../shared/lang/i18n/reducers';
+import * as fromI18n from '../../../shared/lang/i18n/reducers';
 import { Subject } from 'rxjs';
 import { Audit } from 'src/app/shared/model/audit';
 import { Operation } from 'src/app/shared/model/operation.enum';
@@ -18,11 +18,11 @@ import { Operation } from 'src/app/shared/model/operation.enum';
 })
 export class AuditsComponent extends I18nComponent {
   audits: any;
-  properties : any;
-  property : any = 'id';
-  operations : any;
-  operation : any;
-  public showOperations:boolean = false;
+  properties: any;
+  property: any = 'id';
+  operations: any;
+  operation: any;
+  public showOperations: boolean = false;
   public showTwoInputs:boolean = false;
   public showOneInput:boolean = true;
   keyword1: any='';
@@ -40,7 +40,6 @@ export class AuditsComponent extends I18nComponent {
       super(store, translate);
       let audit:Audit = new Audit();
       this.properties = Object.getOwnPropertyNames(audit);
-      //this.property = this.properties[0];
       this.operations =  Object.keys(Operation).filter(k => typeof Operation[k as any] === "number");
     }
     refrechChild(){
@@ -50,7 +49,7 @@ export class AuditsComponent extends I18nComponent {
          return val instanceof Date;
      }
     selectProperty(event){
-      let audit:Audit = new Audit();
+      let audit: Audit = new Audit();
       event.preventDefault();
       this.property = event.target.value;
       if (this.isDate(audit[this.property])) {
@@ -89,8 +88,8 @@ export class AuditsComponent extends I18nComponent {
       console.log("property : "+this.property + "\n");
       console.log("values : "+this.keyword2 + "\n");
       console.log("values : "+this.keyword3 + "\n");
-      this.allAudits=false;
-      this.keyword1=null;
+      this.allAudits = false;
+      this.keyword1 = null;
       this.refrechChild();
 
     }

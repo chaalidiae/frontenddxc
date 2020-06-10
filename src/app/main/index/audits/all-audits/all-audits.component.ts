@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/main/index/login/shared/authentification.service';
 import { Router } from '@angular/router';
-import { AuditsService } from 'src/app/main/index/audit/audits/shared/audit.service';
+import { AuditsService } from 'src/app/main/index/audits/shared/audit.service';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
-import * as fromI18n from '../../../../../shared/lang/i18n/reducers';
+import * as fromI18n from '../../../../shared/lang/i18n/reducers';
 
 @Component({
   selector: 'app-all-audits',
@@ -29,6 +29,10 @@ export class AllAuditsComponent implements OnInit {
   ngOnInit(): void {
     this.getPageOfAudits();
   }
+
+  /**
+   * Cette fonction permet de retourner une page des audits.
+   */
   getPageOfAudits() {
     this.auditService.getPageOfAudits(this.page,this.size)
       .subscribe(data => {
@@ -42,29 +46,32 @@ export class AllAuditsComponent implements OnInit {
       });
   }
 
-  selectSize(event:any){
+  /**
+   * L'ensemble des fonctions ci-dessous est responsable de la pagination.
+   */
+  selectSize(event: any){
     event.preventDefault();
-    this.size=event.target.value;
-    this.page=0;
+    this.size = event.target.value;
+    this.page = 0;
     this.getPageOfAudits();
   }
 
-  setPage(i,event:any){
+  setPage(i, event: any){
     event.preventDefault();
     this.page=i;
     this.getPageOfAudits();
   }
-  setPrevious(event:any){
+  setPrevious(event: any){
     event.preventDefault();
     if (this.page>0){
     this.page--;
     this.getPageOfAudits();
     }
   }
-  setNext(event:any){
+  setNext(event: any){
     event.preventDefault();
-    let j:number=this.pages.length-1;
-    if (this.page<j){
+    let j: number = this.pages.length - 1;
+    if (this.page < j){
       this.page++;
       this.getPageOfAudits();
     }

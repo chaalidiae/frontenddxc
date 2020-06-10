@@ -71,4 +71,14 @@ export class AllRolesComponent implements OnInit {
       this.router.navigate(['/new-role'], {queryParams: {id}});
     }
 
+    OnDelete(id) {
+      const confirm = window.confirm('Est vous sure ?');
+      if (confirm === true) {
+        this.rolesService.deleteRole(id).subscribe(
+          data => {
+            this.getPageOfRoles();
+          }
+        );
+      }
+    }
 }
