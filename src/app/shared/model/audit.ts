@@ -4,5 +4,7 @@ export class Audit {
     operation = '';
     date: Date = new Date();
     changes = '';
+    objectID = '';
+    objectType = '';
   }
   
