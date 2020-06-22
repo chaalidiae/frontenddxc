@@ -15,7 +15,7 @@
     width: 170px;
 }
 .sidebar-collapsed {
-    width: 47px;
+    width: 3.7vw;
 }
 
 /* Menu item*/
@@ -63,7 +63,8 @@
   text-align: right;
   padding-left: 10px;
 }
-
-#sidebar-container:hover{
-    overflow:scroll; 
+.scrolled:hover{
+    max-height: 92.2vh;
+    min-height: 1px;
+    overflow: scroll;
 }
