@@ -1,21 +1,28 @@
-<div class="container">
-  <div class="alert alert-danger" *ngIf="mode==1">
-    <strong>Bad Credentials!</strong> Invalid username or password
-  </div>
-  <div class="login-form">
-    <form #f="ngForm" (ngSubmit)="onLogin(f.value)">
-        <h2 class="text-center">{{'LOGIN' | translate}}</h2>       
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="{{'USERNAME' | translate}}" 
-                               name="username" ngModel="" required="required">
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" placeholder="{{'PASSWORD' | translate}}" 
-                               name="password" ngModel="" required="required">
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">{{'LOGIN' | translate}}</button>
-        </div>       
-    </form>
-  </div>
+<div class="bodyy">
+  <div class="container">
+    <div class="alert alert-danger" *ngIf="mode==1">
+      <strong>Bad Credentials!</strong> Invalid username or password
+    </div>
+    <div class="login-form text-center">
+      <form #f="ngForm" (ngSubmit)="onLogin(f.value)" class="form-signin">
+        <img class="mb-4" src="https://upload.wikimedia.org/wikipedia/commons/7/73/DXC_Tech.png" alt="" width="72" height="72">
+          <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+          <label for="inputEmail" class="sr-only">Email address</label>
+          <input type="email" id="inputEmail" class="form-control" placeholder="{{'USERNAME' | translate}}" name="username" ngModel="" required="required" autofocus>
+          <!-- <div class="form-group">
+              <input type="text" class="form-control" placeholder="{{'USERNAME' | translate}}" 
+                                name="username" ngModel="" required="required">
+          </div> -->
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input type="password" id="inputPassword" class="form-control" placeholder="{{'PASSWORD' | translate}}" name="password" ngModel="" required="required">
+          <!-- <div class="form-group">
+              <input type="password" class="form-control" placeholder="{{'PASSWORD' | translate}}" 
+                                name="password" ngModel="" required="required">
+          </div> -->
+          <div class="form-group">
+              <button type="submit" class="btn btn-lg btn-primary btn-block">{{'LOGIN' | translate}}</button>
+          </div>       
+      </form>
+    </div>
+  </div> 
 </div>

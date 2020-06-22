@@ -1,52 +1,60 @@
-<div class="container-fluid mb-5">
-    <p></p>
-    <h2>{{'AUDIT' | translate}}</h2>
-</div>
-<div class ="row">
-    <div class="col-md-3 mb-3">
-      <select (change)="selectProperty($event)" class="custom-select" >
-        <option *ngFor="let property of properties" value={{property}}>{{property}}</option>
-      </select>
-    </div>
-    <div class="col-md-8 mb-3">
-      <ng-container *ngIf="showOneInput">
-        <form class="container" #searchOnInputForm="ngForm" (ngSubmit)="OnSubmitOneInput()" novalidate>
-          <div class="input-group ">
-            <input class="form-control my-0 py-1 amber-border" #motCle="ngModel"
-              type="text" placeholder="Search" name="keyword1" [(ngModel)]="keyword1">
-            <button class="btn btn-success" type="submit">{{'SEARCH' | translate}}</button>
+<div class="mt-2">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row justify-content-between">
+          <div class="col-sm-6">
+              <h2>Manage <b>Audit</b></h2>
+          </div> 
+          <div class="col-sm-2">
+            <select (change)="selectProperty($event)" class="custom-select" >
+              <option *ngFor="let property of properties" value={{property}}>{{property}}</option>
+            </select>
           </div>
-        </form>
-      </ng-container>
-      <ng-container *ngIf="showTwoInputs">
-        <form class="container" #searchTwoInputsForm="ngForm" (ngSubmit)="OnSubmitTwoInputs()" novalidate>
-          <div class="input-group md-form form-xs ">
-              <input class="form-control  amber-border" #motCle1="ngModel"
-                    type="date" placeholder="Search" name="keyword2" [(ngModel)]="keyword2">
-              <input class="form-control my-0 py-1 amber-border"
-                    type="date" placeholder="Search" name="keyword3" [(ngModel)]="keyword3">
-              <button class="btn btn-success" type="submit">{{'SEARCH' | translate}}</button>
+          <div class="col-sm-3">
+            <div class="">
+              <div class="md-form mt-0">
+                <ng-container *ngIf="showOneInput">
+                  <form class="" #searchOnInputForm="ngForm" (ngSubmit)="OnSubmitOneInput()" novalidate>
+                    <div class="input-group ">
+                      <input class="form-control my-0 py-1 amber-border" #motCle="ngModel" type="text" placeholder="Search" name="keyword1" [(ngModel)]="keyword1">
+                      <!-- <button class="btn btn-success" type="submit">{{'SEARCH' | translate}}</button> -->
+                    </div>
+                  </form>
+                </ng-container>
+                <ng-container *ngIf="showTwoInputs">
+                  <form class="" #searchTwoInputsForm="ngForm" (ngSubmit)="OnSubmitTwoInputs()" novalidate>
+                    <div class="input-group ">
+                        <input class="form-control  amber-border" #motCle1="ngModel" type="date" placeholder="Search" name="keyword2" [(ngModel)]="keyword2">
+                        <input class="form-control my-0 py-1 amber-border" type="date" placeholder="Search" name="keyword3" [(ngModel)]="keyword3">
+                        <button class="btn btn-success" type="submit">{{'SEARCH' | translate}}</button>
+                    </div>
+                  </form>
+                </ng-container>
+                <ng-container *ngIf="showOperations">
+                  <div class="input-group ">
+                  <select (change)="selectOperation($event)" class="custom-select container">
+                    <option *ngFor="let operation of operations" value={{operation}}>{{operation}}</option>
+                  </select>
+                  <button class="btn btn-success" (click)="OnSubmitOneInput()" type="submit">{{'SEARCH' | translate}}</button>
+                </div>
+                </ng-container>
+              </div>
+            </div>
           </div>
-        </form>
-      </ng-container>
-      <ng-container *ngIf="showOperations">
-        <div class="input-group md-form form-xs ">
-        <select (change)="selectOperation($event)" class="custom-select container">
-          <option *ngFor="let operation of operations" value={{operation}}>{{operation}}</option>
-        </select>
-        <button class="btn btn-success" (click)="OnSubmitOneInput()" type="submit">{{'SEARCH' | translate}}</button>
-      </div>
-      </ng-container>
+        </div>
     </div>
-</div>
-<div *ngIf="allAudits">
-  <app-all-audits></app-all-audits>
-</div>
-<div *ngIf="allAudits === false">
-  <app-search-audits   [keyword1]='keyword1'
-                      [keyword2]='keyword2'
-                      [keyword3]='keyword3'
-                      [property]='property'
-                      [refrechChildSubject]="refrechChildSubject.asObservable()"
-                       ></app-search-audits>
-  </div>
+    <div>
+          <div *ngIf="allAudits">
+            <app-all-audits></app-all-audits>
+          </div>
+          <div *ngIf="allAudits === false">
+            <app-search-audits   [keyword1]='keyword1'
+                                [keyword2]='keyword2'
+                                [keyword3]='keyword3'
+                                [property]='property'
+                                [refrechChildSubject]="refrechChildSubject.asObservable()"
+                                ></app-search-audits>
+                              </div>
+                            </div>
+                         </div>
+                      </div>

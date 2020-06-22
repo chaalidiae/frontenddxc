@@ -1,36 +1,43 @@
-<div class="container-fluid mb-3">
-  <p></p>
-  <h2>{{'LISTOFUSERS' | translate}}</h2>
-</div>
-<div class="mb-4 pl-3">
-  <button class="btn btn-primary" (click)="onNewUser()">{{'NEWUSER' | translate}}</button>
-  </div>
-<div class="row container">
-    <div class="col-md-3 mb-3">
-      <select (change)="selectProperty($event)" class="custom-select" >
-        <option *ngFor="let property of properties" value={{property}}>{{property}}</option>
-      </select>
-    </div>
-    <div class="col-md-8 mb-3">
-  <form class="container" #searchOnInputForm="ngForm" (ngSubmit)="OnSubmitOneInput()" novalidate>
-    <div class="input-group ">
-      <input class="form-control my-0 py-1 amber-border" #motCle="ngModel"
-            type="text" placeholder="Search" name="keyword" [(ngModel)]="keyword">
-      <button class="btn btn-success" type="submit">{{'SEARCH' | translate}}</button>
-    </div>
-  </form>
-</div>
-</div>
-
-  <div>
-    <div *ngIf="allUsers">
-      <app-all-users></app-all-users>
-    </div>
-
-    <div *ngIf="allUsers === false">
-      <app-search-users [keyword]='keyword'
-                       [property]='property'
-                       [refrechChildSubject]="refrechChildSubject.asObservable()"
-                          ></app-search-users>
+<div class="container mt-5">
+  <div class="col-sm-6" style="padding-left: 0 !important; padding-right: 0 !important;">
+    <div class="mb-4">
+      <button class="btn btn-success" (click)="onNewUser()">{{'NEWUSER' | translate}}</button>
     </div>
   </div>
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row justify-content-between">
+          <div class="col-sm-6">
+              <h2>Manage <b>Users</b></h2>
+          </div> 
+          <div class="col-sm-2">
+            <select (change)="selectProperty($event)" class="custom-select" >
+              <option *ngFor="let property of properties" value={{property}}>{{property}}</option>
+            </select>
+          </div>
+          <div class="col-sm-3">
+            <div class="">
+              <div class="md-form mt-0">
+                <form class="" #searchOnInputForm="ngForm" (ngSubmit)="OnSubmitOneInput()" novalidate>
+                    <input class=" form-control" #motCle="ngModel" type="text" placeholder="Search" name="keyword" [(ngModel)]="keyword">
+                    <!-- <button class="col-sm-3 btn btn-success" type="submit">{{'SEARCH' | translate}}</button> -->
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div>
+        <div *ngIf="allUsers">
+          <app-all-users></app-all-users>
+        </div>
+        <div *ngIf="allUsers === false">
+          <app-search-users [keyword]='keyword'
+                          [property]='property'
+                          [refrechChildSubject]="refrechChildSubject.asObservable()"
+                              ></app-search-users>
+        </div>
+      </div>
+   </div>
+</div>
+      

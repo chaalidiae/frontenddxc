@@ -1,5 +1,9 @@
 .row{
-    margin-right: 0px;
+    color: #3e4757;
+    background: #c9cdd470;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 13px;
+    margin-right: 0px !important;
 }
 .side{
     z-index: 1;

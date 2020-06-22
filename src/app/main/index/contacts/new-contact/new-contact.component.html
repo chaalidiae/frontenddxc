@@ -1,46 +1,52 @@
-<div class="container-fluid mb-5">
-  <p></p>
-  <h2>{{'NEWCONTACT' | translate}}</h2>
+<div class="container mt-5">
+  <div class="row ml-5" style="width: 60%;margin-left: 15%!important;">
+      <div class="col">
+          <div class="card">
+              <div class="card-header bg-darkblue text-white"><i class="fa fa-info"></i> Contact informations
+              </div>
+              <div class="card-body">
+                <form class="container size"  #contactForm="ngForm" (ngSubmit)="OnSubmit()" novalidate>
+                  <div class="form-group">
+                      <label>{{'LASTNAME' | translate}} :</label>
+                      <input class="form-control" #nom="ngModel" [class.is-invalid]="nom.invalid && nom.touched" [(ngModel)]="contact.nom" type="text" name="nom" required>
+                      <small class="text-danger" [class.d-none]="nom.valid || nom.untouched">Le champ nom est requis !</small>
+                  </div>
+                  <div class="form-group">
+                    <label>{{'FIRSTNAME' | translate}} :</label>
+                    <input class="form-control" #prenom="ngModel" [class.is-invalid]="prenom.invalid && prenom.touched" [(ngModel)]="contact.prenom" type="text" name="prenom" required>
+                    <small class="text-danger" [class.d-none]="prenom.valid || prenom.untouched">Le champ prénom est requis !</small>
+                  </div>
+
+                  <div class="form-group">
+                    <label>{{'BIRTHDAY' | translate}} :</label>
+                    <input class="form-control" #dateNaissance="ngModel" [(ngModel)]="contact.dateNaissance" type="date" name="dateNaissance" required>
+                    <small class="text-danger" [class.d-none]="dateNaissance.valid || dateNaissance.untouched">Le champ date de naissance est requis</small>
+                  </div>
+
+                  <div class="form-group">
+                    <label>{{'EMAIL' | translate}} :</label>
+                    <input class="form-control" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" [(ngModel)]="contact.email" type="email" name="email" required>
+                    <div *ngIf="email.errors && (email.invalid || email.touched)">
+                      <small class="text-danger" *ngIf="email.errors.required">{{'EMAILREQUIRED' | translate}} !</small>
+                      <small class="text-danger" *ngIf="email.errors.pattern">{{'EMAILUNVALID' | translate}} !</small>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>{{'PHONE' | translate}} :</label>
+                    <input class="form-control" #phone="ngModel" pattern="^\d{10}$" [class.is-invalid]="phone.invalid && phone.touched" [(ngModel)]="contact.tel" type="text" name="tel" required="">
+                    <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
+                      <small class="text-danger" *ngIf="phone.errors.required">{{'TELEREQUIRED' | translate}} !</small>
+                      <small class="text-danger" *ngIf="phone.errors.pattern">{{'TELEUNVALID' | translate}} !</small>
+                    </div>
+                  </div>
+                  <div>
+                    <button [disabled]="contactForm.form.invalid" class="btn btn-success" type="submit">{{'SAVE' | translate}}</button>
+                  </div>
+                </form>
+            </div>
+         </div>
+      </div>
+    </div>
 </div>
-
-<form class="container size"  #contactForm="ngForm" (ngSubmit)="OnSubmit()" novalidate>
-
-  <div class="form-group">
-      <label>{{'LASTNAME' | translate}} :</label>
-      <input class="form-control" #nom="ngModel" [class.is-invalid]="nom.invalid && nom.touched" [(ngModel)]="contact.nom" type="text" name="nom" required>
-      <small class="text-danger" [class.d-none]="nom.valid || nom.untouched">Le champ nom est requis !</small>
-  </div>
-
-  <div class="form-group">
-    <label>{{'FIRSTNAME' | translate}} :</label>
-    <input class="form-control" #prenom="ngModel" [class.is-invalid]="prenom.invalid && prenom.touched" [(ngModel)]="contact.prenom" type="text" name="prenom" required>
-    <small class="text-danger" [class.d-none]="prenom.valid || prenom.untouched">Le champ prénom est requis !</small>
-  </div>
-
-  <div class="form-group">
-    <label>{{'BIRTHDAY' | translate}} :</label>
-    <input class="form-control" #dateNaissance="ngModel" [(ngModel)]="contact.dateNaissance" type="date" name="dateNaissance" required>
-    <small class="text-danger" [class.d-none]="dateNaissance.valid || dateNaissance.untouched">Le champ date de naissance est requis</small>
-  </div>
-
-  <div class="form-group">
-    <label>{{'EMAIL' | translate}} :</label>
-    <input class="form-control" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" [(ngModel)]="contact.email" type="email" name="email" required>
-    <div *ngIf="email.errors && (email.invalid || email.touched)">
-      <small class="text-danger" *ngIf="email.errors.required">{{'EMAILREQUIRED' | translate}} !</small>
-      <small class="text-danger" *ngIf="email.errors.pattern">{{'EMAILUNVALID' | translate}} !</small>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label>{{'PHONE' | translate}} :</label>
-    <input class="form-control" #phone="ngModel" pattern="^\d{10}$" [class.is-invalid]="phone.invalid && phone.touched" [(ngModel)]="contact.tel" type="text" name="tel" required="">
-    <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
-      <small class="text-danger" *ngIf="phone.errors.required">{{'TELEREQUIRED' | translate}} !</small>
-      <small class="text-danger" *ngIf="phone.errors.pattern">{{'TELEUNVALID' | translate}} !</small>
-    </div>
-  </div>
-  <div>
-    <button [disabled]="contactForm.form.invalid" class="btn btn-success" type="submit">{{'SAVE' | translate}}</button>
-  </div>
-</form>
+<br>

@@ -1,18 +1,26 @@
-<div class="container-fluid mb-5">
-    <p></p>
-    <h2>{{'NEWPERMISSION' | translate}}</h2>
+<div class="container mt-5">
+  <div class="row ml-5" style="width: 60%;margin-left: 15%!important;">
+      <div class="col">
+          <div class="card">
+              <div class="card-header bg-darkblue text-white"><i class="fa fa-info"></i> Permission informations
+          </div>
+          <div class="card-body">
+            <form class="container size"  #contactForm="ngForm" (ngSubmit)="OnSubmit()" novalidate>
+              <div class="form-group">
+                  <label>{{'NAME' | translate}} :</label>
+                  <input class="form-control" #permissionName="ngModel" [class.is-invalid]="permissionName.invalid && permissionName.touched" [(ngModel)]="permission.permissionName" type="text" name="permissionName" required>
+                  <small class="text-danger" [class.d-none]="permissionName.valid || permissionName.untouched">Le champ nom est requis !</small>
+              </div>
+              
+              <div>
+                <button [disabled]="contactForm.form.invalid" class="btn btn-success" type="submit">{{'SAVE' | translate}}</button>
+              </div>
+            </form>
+          </div>
+       </div>
+    </div>
   </div>
-  
-  <form class="container size"  #contactForm="ngForm" (ngSubmit)="OnSubmit()" novalidate>
-  
-    <div class="form-group">
-        <label>{{'NAME' | translate}} :</label>
-        <input class="form-control" #permissionName="ngModel" [class.is-invalid]="permissionName.invalid && permissionName.touched" [(ngModel)]="permission.permissionName" type="text" name="permissionName" required>
-        <small class="text-danger" [class.d-none]="permissionName.valid || permissionName.untouched">Le champ nom est requis !</small>
-    </div>
-    
-    <div>
-      <button [disabled]="contactForm.form.invalid" class="btn btn-success" type="submit">{{'SAVE' | translate}}</button>
-    </div>
-  </form>
+</div>
+<br>
+
   

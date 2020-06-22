@@ -1,29 +1,34 @@
-<div class="container-fluid mb-5">
-    <p></p>
-    <h2>{{'NEWROLE' | translate}}</h2>
-  </div>
-
-<form class="container size"  #userForm="ngForm" (ngSubmit)="OnSubmit()" novalidate>
-
-    <div class="form-group">
-        <label>{{'NAME' | translate}} :</label>
-      <input class="form-control" #roleName="ngModel" [class.is-invalid]="roleName.invalid && roleName.touched" [(ngModel)]="role.roleName" type="text" name="roleName" required>
-       <small class="text-danger" [class.d-none]="roleName.valid || roleName.untouched">Le champ utilisateur est requis !</small> 
-    </div>
-    
-    <div class="form-group">
-      <ng-multiselect-dropdown
-      name="permissions" 
-      [settings]="dropdownSettings"
-      [data]="permissions"
-      [(ngModel)]="selectedItems"
-      [placeholder]="'Permissions'"
-      (onSelect)="onItemSelect($event)">
-      </ng-multiselect-dropdown>
-  </div>
-    
-    <div>
-        <button  class="btn btn-success" type="submit">{{'SAVE' | translate}}</button>
-      </div>
-</form>
-<br>
+<div class="container mt-5">
+  <div class="row ml-5" style="width: 60%;margin-left: 15%!important;">
+      <div class="col">
+          <div class="card">
+              <div class="card-header bg-darkblue text-white"><i class="fa fa-info"></i> Role informations
+              </div>
+              <div class="card-body">
+                <form class="container size"  #userForm="ngForm" (ngSubmit)="OnSubmit()" novalidate>
+                    <div class="form-group">
+                        <label>{{'NAME' | translate}} :</label>
+                      <input class="form-control" #roleName="ngModel" [class.is-invalid]="roleName.invalid && roleName.touched" [(ngModel)]="role.roleName" type="text" name="roleName" required>
+                      <small class="text-danger" [class.d-none]="roleName.valid || roleName.untouched">Le champ utilisateur est requis !</small> 
+                    </div>
+                    <div class="form-group">
+                      <ng-multiselect-dropdown
+                      name="permissions" 
+                      [settings]="dropdownSettings"
+                      [data]="permissions"
+                      [(ngModel)]="selectedItems"
+                      [placeholder]="'Permissions'"
+                      (onSelect)="onItemSelect($event)">
+                      </ng-multiselect-dropdown>
+                  </div>
+                    
+                    <div>
+                        <button  class="btn btn-success" type="submit">{{'SAVE' | translate}}</button>
+                      </div>
+                </form>
+              </div>
+            </div>
+         </div>
+       </div>
+   </div>
+   <br>

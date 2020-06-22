@@ -1,7 +1,13 @@
-mark {
-    background-color: yellow;
-    color: black;
-  }
-img{
-    max-width: 380px;
+.bg-gray{
+  background-color: #e4e5e6;
+}
+.no-marg-row{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.side{
+  border-right: 1px solid #ddd;
+}
+.display-4{
+  font-size: 3.5rem;
 }
