@@ -82,4 +82,12 @@ constructor(private http: HttpClient, private authService: AuthenticationService
   getContactById(id) {
   return this.http.get(GlobalConstants.host + '/contacts/' + id);
 }
+  /**
+   * Récupération la list des contacts.
+   */
+  getContacts() {
+  if (this.authService.jwtToken == null) { this.authService.LoadToken();}
+  return this.http.get
+  (GlobalConstants.host + '/contacts');
+}
 }
