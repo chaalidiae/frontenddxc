@@ -11,11 +11,11 @@ export const IndexRoutes: Route[] = [
     loadChildren: () =>
       import('./index.module').then(m => m.IndexModule)
   },
-  {
-    path: 'contacts',
-    loadChildren: () =>
-      import('./contacts/contacts.module').then(m => m.ContactsModule)
-  },
+  // {
+  //   path: 'contacts',
+  //   loadChildren: () =>
+  //     import('./contacts/contacts.module').then(m => m.ContactsModule)
+  // },
   {
     path: 'login',
     loadChildren: () =>
@@ -31,11 +31,11 @@ export const IndexRoutes: Route[] = [
     loadChildren: () =>
       import('./user/new-user/new-user.module').then(m => m.NewUserModule)
   },
-  {
-    path: 'new-contact',
-    loadChildren: () =>
-      import('./contacts/new-contact/new-contact.module').then(m => m.NewContactModule)
-  },
+  // {
+  //   path: 'new-contact',
+  //   loadChildren: () =>
+  //     import('./contacts/new-contact/new-contact.module').then(m => m.NewContactModule)
+  // },
   {
     path: 'roles',
     loadChildren: () =>
