@@ -8,3 +8,7 @@
 .side{
     z-index: 1;
 }
+.content{
+    position: relative;
+    min-height: 100vh;
+}

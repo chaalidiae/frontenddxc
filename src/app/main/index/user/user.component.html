@@ -19,8 +19,10 @@
             <div class="">
               <div class="md-form mt-0">
                 <form class="" #searchOnInputForm="ngForm" (ngSubmit)="OnSubmitOneInput()" novalidate>
+                  <div class="input-group ">
                     <input class=" form-control" #motCle="ngModel" type="text" placeholder="Search" name="keyword" [(ngModel)]="keyword">
-                    <!-- <button class="col-sm-3 btn btn-success" type="submit">{{'SEARCH' | translate}}</button> -->
+                    <button class=" btn btn-success" type="submit">{{'SEARCH' | translate}}</button>
+                  </div>
                 </form>
               </div>
             </div>
