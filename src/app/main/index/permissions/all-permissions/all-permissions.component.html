@@ -2,12 +2,12 @@
 <tr>
     <th>{{'ID' | translate}}</th><th>{{'NAME' | translate}}</th><th>{{'ACTIONS' | translate}}</th>
 </tr>
-<tr *ngFor="let permission of permissions">
+<tr class="text-center" *ngFor="let permission of permissions">
     <td>{{permission.id}}</td>
     <td>{{permission.permissionName}}</td>
     <td>
-      <button class="btn btn-outline-success mr-2"(click)="OnUpdate(permission.id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button>
-      <button class="btn btn-outline-danger" (click)="OnDelete(permission.id)">Delete</button>
+      <button class="btn text-success"(click)="OnUpdate(permission.id)"><i class="fa fa-pencil"></i></button>
+      <button class="btn text-danger" (click)="OnDelete(permission.id)"><i class="fa fa-trash"></i></button>
     </td>
 </tr>
 </table>
