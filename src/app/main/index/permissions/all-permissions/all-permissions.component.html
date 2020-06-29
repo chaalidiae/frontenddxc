@@ -2,7 +2,7 @@
 <tr>
     <th>{{'ID' | translate}}</th><th>{{'NAME' | translate}}</th><th>{{'ACTIONS' | translate}}</th>
 </tr>
-<tr class= *ngFor="let permission of permissions">
+<tr *ngFor="let permission of permissions">
     <td>{{permission.id}}</td>
     <td>{{permission.permissionName}}</td>
     <td>
