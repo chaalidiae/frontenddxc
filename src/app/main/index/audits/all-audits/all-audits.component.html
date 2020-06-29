@@ -1,9 +1,10 @@
 <table class="table table-striped table-hover">
   <thead>
-    <tr class="text-center" >
+    <tr>
       <th>{{'ID' | translate}}</th>
       <th>{{'USER' | translate}}</th>
       <th>{{'OPERATION' | translate}}</th>
+      <th></th><th></th>
       <th>{{'DATE' | translate}}</th>
       <th>{{'OBJECTID' | translate}}</th>
       <th>{{'OBJECTTYPE' | translate}}</th>
@@ -11,10 +12,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="text-center" *ngFor="let audit of audits">
+    <tr *ngFor="let audit of audits" [ngClass]="{'table-success': (ifStartsWith(audit.operation,'INSERT')),
+                                                 'table-primary': (ifStartsWith(audit.operation,'UPDATE')),
+                                                 'table-danger': (ifStartsWith(audit.operation,'DELETE'))}">
       <td>{{audit.id}}</td>
       <td>{{audit.user}}</td>
-      <td>{{audit.operation}}</td>
+      <ng-container [ngSwitch]="startsWith(audit.operation)">
+        <td><ng-container *ngSwitchCase="0">{{'INSERTION' | translate}}</ng-container></td>
+        <td><ng-container *ngSwitchCase="1">{{'UPDATE' | translate}}</ng-container></td>
+        <td><ng-container *ngSwitchCase="2">{{'DELETE' | translate}}</ng-container></td>
+      </ng-container>
       <td>{{audit.date}}</td>
       <td>{{audit.objectID}}</td>
       <td>{{audit.objectType}}</td>

@@ -4,5 +4,10 @@
     "OPERATION": "Operation",
     "DATE": "Date",
     "CHANGES": "Changements",
-    "AUDIT": "Traçabilité"
+    "AUDIT": "Traçabilité",
+    "INSERTION": "Insertion",
+    "UPDATE": "Mise à jour",
+    "DELETE": "Suppression",
+    "OBJECTID": "Id d'Objet",
+    "OBJECTTYPE": "Type d'Objet"
   }

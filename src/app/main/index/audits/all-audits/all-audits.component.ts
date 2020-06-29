@@ -78,4 +78,13 @@ export class AllAuditsComponent implements OnInit {
 
   }
 
+  ifStartsWith(string: string , subString : string){
+    return string.startsWith(subString)
+  }
+  startsWith(string: string){
+    if(this.ifStartsWith(string,'INSERT')) return 0;
+    if(this.ifStartsWith(string,'UPDATE')) return 1;
+    if(this.ifStartsWith(string,'DELETE')) return 2;
+  }
+
 }
