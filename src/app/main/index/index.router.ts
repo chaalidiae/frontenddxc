@@ -65,5 +65,10 @@ export const IndexRoutes: Route[] = [
     path: 'home',
     loadChildren: () =>
       import('./home/home.module').then(m => m.HomeModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./user-connected/user-connected.module').then(m => m.UserConnectedModule)
   }
 ];
