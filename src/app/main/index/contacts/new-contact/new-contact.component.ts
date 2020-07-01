@@ -37,6 +37,7 @@ mode = 1;
           this.mode = 0;
         }
         this.contact = data;
+        // HereICanAddNewDate
       }, error => console.log(error));
   }
 

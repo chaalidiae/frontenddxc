@@ -35,6 +35,7 @@ export class AllContactsComponent implements OnInit {
     this.contactService.getPageOfContacts(this.page,this.size)
       .subscribe(data => {
         this.contacts = data['content'];
+        // HereICanAddNewDate
         this.pages=new Array(data['totalPages']);
       }, error => {
         this.authService.logout();

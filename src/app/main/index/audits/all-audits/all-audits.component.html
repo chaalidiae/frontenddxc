@@ -17,9 +17,9 @@
       <td>{{audit.id}}</td>
       <td>{{audit.user}}</td>
       <ng-container [ngSwitch]="startsWith(audit.operation)">
-        <td><ng-container *ngSwitchCase="0">{{'INSERTION' | translate}}</ng-container></td>
-        <td><ng-container *ngSwitchCase="1">{{'UPDATE' | translate}}</ng-container></td>
-        <td><ng-container *ngSwitchCase="2">{{'DELETE' | translate}}</ng-container></td>
+        <td><ng-container *ngSwitchCase="0">{{'INSERTION' | translate}}</ng-container>
+        <ng-container *ngSwitchCase="1">{{'UPDATE' | translate}}</ng-container>
+        <ng-container *ngSwitchCase="2">{{'DELETE' | translate}}</ng-container></td>
       </ng-container>
       <td>{{audit.date}}</td>
       <td>{{audit.objectID}}</td>
